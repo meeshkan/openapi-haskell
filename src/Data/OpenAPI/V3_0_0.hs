@@ -1,276 +1,275 @@
-{-# LANGUAGE FlexibleInstances #-}
 {-# LANGUAGE OverloadedStrings #-}
-module Data.OpenAPI.V3_0_0 (Components(..),
- getSchemaExclusiveMaximum, setSchemaExclusiveMaximum,
- eitherSecuritySchemaHTTPSS,
- getAPIKeySecuritySchemeType, setAPIKeySecuritySchemeType,
- getOAuth2SecuritySchemeFlows, setOAuth2SecuritySchemeFlows,
- getServerUrl, setServerUrl,
- getParameterExplode, setParameterExplode,
- getOpenAPIObjectTags, setOpenAPIObjectTags,
- eitherAdditionalBool,
- getSchemaDeprecated, setSchemaDeprecated,
- getOperationRequestBody, setOperationRequestBody,
- getServerDescription, setServerDescription,
- ServerVariable(..),
- getOpenAPIObjectOpenapi, setOpenAPIObjectOpenapi,
- getEncodingHeaders, setEncodingHeaders,
- getOperationDeprecated, setOperationDeprecated,
- eitherBoolIntBool,
- getPathItemPut, setPathItemPut,
- getLinkParameters, setLinkParameters,
- getPasswordOAuthFlowTokenUrl, setPasswordOAuthFlowTokenUrl,
- Schema(..),
- getPathItemOptions, setPathItemOptions,
- getComponentsRequestBodies, setComponentsRequestBodies,
- getOAuthFlowsX, setOAuthFlowsX,
- getParameterDescription, setParameterDescription,
- getComponentsHeaders, setComponentsHeaders,
- getSchemaWriteOnly, setSchemaWriteOnly,
- getHeaderExamples, setHeaderExamples,
- getMediaTypeExamples, setMediaTypeExamples,
- getLicenseUrl, setLicenseUrl,
- getReferenceRef, setReferenceRef,
- getServerVariables, setServerVariables,
- getExampleX, setExampleX,
- getHeaderExample, setHeaderExample,
- getSchemaMaxProperties, setSchemaMaxProperties,
- getInfoTermsOfService, setInfoTermsOfService,
- eitherAdditionalReference,
- ImplicitOAuthFlow(..),
- getSchemaMultipleOf, setSchemaMultipleOf,
- ClientCredentialsFlow(..),
- getPathItemTrace, setPathItemTrace,
- eitherSecuritySchemaAPIKeySS,
- getExternalDocumentationDescription, setExternalDocumentationDescription,
- getPasswordOAuthFlowRefreshUrl, setPasswordOAuthFlowRefreshUrl,
- Reference(..),
- getClientCredentialsFlowRefreshUrl, setClientCredentialsFlowRefreshUrl,
- getSchemaMaximum, setSchemaMaximum,
- getEncodingX, setEncodingX,
- getOperationSummary, setOperationSummary,
- getAuthorizationCodeOAuthFlowAuthorizationUrl, setAuthorizationCodeOAuthFlowAuthorizationUrl,
- getXMLWrapped, setXMLWrapped,
- getHTTPSecuritySchemeX, setHTTPSecuritySchemeX,
- OAuth2SecurityScheme(..),
- APIKeySecurityScheme(..),
- getOperationParameters, setOperationParameters,
- getResponseHeaders, setResponseHeaders,
- Example(..),
- OpenIdConnectSecurityScheme(..),
- getSchemaNullable, setSchemaNullable,
+module Data.OpenAPI.V3_0_0 (getAPIKeySecuritySchemeDescription, setAPIKeySecuritySchemeDescription,
  getSchemaExample, setSchemaExample,
- getSchemaReadOnly, setSchemaReadOnly,
- getSchemaNot, setSchemaNot,
- getInfoLicense, setInfoLicense,
- getComponentsParameters, setComponentsParameters,
- eitherBoolIntInt,
- getSchemaOneOf, setSchemaOneOf,
- getHeaderAllowReserved, setHeaderAllowReserved,
- getOAuthFlowsAuthorizationCode, setOAuthFlowsAuthorizationCode,
- License(..),
- getSchemaDescription, setSchemaDescription,
- getLinkDescription, setLinkDescription,
- getComponentsExamples, setComponentsExamples,
- eitherItemsSingleItem,
- getParameterExample, setParameterExample,
- getContactName, setContactName,
- eitherItemsSingleItemReference,
- getAuthorizationCodeOAuthFlowX, setAuthorizationCodeOAuthFlowX,
- getComponentsResponses, setComponentsResponses,
- OpenAPIObject(..),
- HTTPSecurityScheme(..),
- getContactEmail, setContactEmail,
- getSchemaMinItems, setSchemaMinItems,
- eitherSecuritySchemaOAuth2SS,
- getOperationCallbacks, setOperationCallbacks,
- getParameterDeprecated, setParameterDeprecated,
- getServerX, setServerX,
- getSchemaEnum, setSchemaEnum,
- getLicenseName, setLicenseName,
- getOpenAPIObjectComponents, setOpenAPIObjectComponents,
- getAPIKeySecuritySchemeDescription, setAPIKeySecuritySchemeDescription,
- getSchemaTitle, setSchemaTitle,
- getResponseContent, setResponseContent,
- getSchemaX, setSchemaX,
- getOAuth2SecuritySchemeType, setOAuth2SecuritySchemeType,
- getEncodingExplode, setEncodingExplode,
- AuthorizationCodeOAuthFlow(..),
- getOperationExternalDocs, setOperationExternalDocs,
- getAPIKeySecuritySchemeIn, setAPIKeySecuritySchemeIn,
- getTagName, setTagName,
- getOpenAPIObjectInfo, setOpenAPIObjectInfo,
- getParameterX, setParameterX,
- getOpenIdConnectSecuritySchemeType, setOpenIdConnectSecuritySchemeType,
- getOAuth2SecuritySchemeX, setOAuth2SecuritySchemeX,
- getImplicitOAuthFlowRefreshUrl, setImplicitOAuthFlowRefreshUrl,
- getHTTPSecuritySchemeType, setHTTPSecuritySchemeType,
- getSchemaPattern, setSchemaPattern,
- getInfoVersion, setInfoVersion,
- getSchemaDiscriminator, setSchemaDiscriminator,
- getSchemaType, setSchemaType,
- getRequestBodyX, setRequestBodyX,
  getSchemaMaxLength, setSchemaMaxLength,
- getParameterAllowEmptyValue, setParameterAllowEmptyValue,
- getEncodingContentType, setEncodingContentType,
- getPathItemDelete, setPathItemDelete,
- getPasswordOAuthFlowScopes, setPasswordOAuthFlowScopes,
- getXMLX, setXMLX,
- getHeaderRequired, setHeaderRequired,
- getSchemaRequired, setSchemaRequired,
- getOperationTags, setOperationTags,
- getOpenIdConnectSecuritySchemeDescription, setOpenIdConnectSecuritySchemeDescription,
- getRequestBodyContent, setRequestBodyContent,
- getHTTPSecuritySchemeScheme, setHTTPSecuritySchemeScheme,
- getDiscriminatorMapping, setDiscriminatorMapping,
- getResponseX, setResponseX,
- getHeaderSchema, setHeaderSchema,
- getHeaderDeprecated, setHeaderDeprecated,
- RequestBody(..),
- getExternalDocumentationX, setExternalDocumentationX,
- getOpenAPIObjectExternalDocs, setOpenAPIObjectExternalDocs,
- getSchemaProperties, setSchemaProperties,
- getImplicitOAuthFlowScopes, setImplicitOAuthFlowScopes,
- getTagDescription, setTagDescription,
- eitherItemsTuple,
- ExternalDocumentation(..),
- Items(..),
- Parameter(..),
- Link(..),
- getParameterAllowReserved, setParameterAllowReserved,
- getSchemaExclusiveMinimum, setSchemaExclusiveMinimum,
- getAPIKeySecuritySchemeName, setAPIKeySecuritySchemeName,
- getOperationX, setOperationX,
- SecuritySchema(..),
- Contact(..),
- Additionals(..),
- getParameterRequired, setParameterRequired,
- getSchemaMinProperties, setSchemaMinProperties,
- getLicenseX, setLicenseX,
- getComponentsSecuritySchemes, setComponentsSecuritySchemes,
- getPathItemServers, setPathItemServers,
- getComponentsCallbacks, setComponentsCallbacks,
- getMediaTypeSchema, setMediaTypeSchema,
- getOAuth2SecuritySchemeDescription, setOAuth2SecuritySchemeDescription,
- getOpenAPIObjectSecurity, setOpenAPIObjectSecurity,
- getEncodingStyle, setEncodingStyle,
- getResponseDescription, setResponseDescription,
- getServerVariableDescription, setServerVariableDescription,
- eitherReferenceOrRef,
- getPathItemPost, setPathItemPost,
- XML(..),
- getXMLAttribute, setXMLAttribute,
  getLinkOperationId, setLinkOperationId,
+ getLinkServer, setLinkServer,
+ getOperationExternalDocs, setOperationExternalDocs,
+ getLicenseX, setLicenseX,
+ getInfoTermsOfService, setInfoTermsOfService,
+ getAPIKeySecuritySchemeIn, setAPIKeySecuritySchemeIn,
+ getSchemaMultipleOf, setSchemaMultipleOf,
+ getServerX, setServerX,
+ XML(..),
+ getOperationParameters, setOperationParameters,
+ getParameterX, setParameterX,
  getOAuthFlowsPassword, setOAuthFlowsPassword,
- getOperationOperationId, setOperationOperationId,
- getSchemaAnyOf, setSchemaAnyOf,
- getXMLNamespace, setXMLNamespace,
- getOperationServers, setOperationServers,
- getOpenAPIObjectX, setOpenAPIObjectX,
- getPathItemHead, setPathItemHead,
- getImplicitOAuthFlowX, setImplicitOAuthFlowX,
- getInfoX, setInfoX,
- getLinkOperationRef, setLinkOperationRef,
- getPathItemGet, setPathItemGet,
- getExampleExternalValue, setExampleExternalValue,
- getSchemaMaxItems, setSchemaMaxItems,
- Header(..),
- getSchemaMinimum, setSchemaMinimum,
- getSchemaExternalDocs, setSchemaExternalDocs,
- Info(..),
- getSchemaItems, setSchemaItems,
- getClientCredentialsFlowTokenUrl, setClientCredentialsFlowTokenUrl,
- getPathItemX, setPathItemX,
- getPasswordOAuthFlowX, setPasswordOAuthFlowX,
- OAuthFlows(..),
- getParameterStyle, setParameterStyle,
- getHeaderAllowEmptyValue, setHeaderAllowEmptyValue,
- getAuthorizationCodeOAuthFlowRefreshUrl, setAuthorizationCodeOAuthFlowRefreshUrl,
- getReferenceX, setReferenceX,
- getServerVariableEnum, setServerVariableEnum,
- Operation(..),
- getSchemaUniqueItems, setSchemaUniqueItems,
- getResponseLinks, setResponseLinks,
- getTagX, setTagX,
- ReferenceOr(..),
- getComponentsX, setComponentsX,
- PasswordOAuthFlow(..),
- getDiscriminatorX, setDiscriminatorX,
- getMediaTypeX, setMediaTypeX,
- getRequestBodyRequired, setRequestBodyRequired,
- getOAuthFlowsImplicit, setOAuthFlowsImplicit,
- eitherSecuritySchemaOpenIdConnectSS,
- getInfoContact, setInfoContact,
- eitherAdditionalSchema,
- getSchemaAdditionalProperties, setSchemaAdditionalProperties,
- getHeaderContent, setHeaderContent,
- getRequestBodyDescription, setRequestBodyDescription,
- getClientCredentialsFlowScopes, setClientCredentialsFlowScopes,
- getAuthorizationCodeOAuthFlowTokenUrl, setAuthorizationCodeOAuthFlowTokenUrl,
- getHeaderStyle, setHeaderStyle,
- getContactUrl, setContactUrl,
- Encoding(..),
- PathItem(..),
- getHeaderDescription, setHeaderDescription,
- getExternalDocumentationUrl, setExternalDocumentationUrl,
- getAuthorizationCodeOAuthFlowScopes, setAuthorizationCodeOAuthFlowScopes,
- getOperationDescription, setOperationDescription,
- getServerVariableDefault, setServerVariableDefault,
- getComponentsLinks, setComponentsLinks,
+ getHTTPSecuritySchemeScheme, setHTTPSecuritySchemeScheme,
+ ExternalDocumentation(..),
+ ImplicitOAuthFlow(..),
  getOpenAPIObjectPaths, setOpenAPIObjectPaths,
- getHTTPSecuritySchemeBearerFormat, setHTTPSecuritySchemeBearerFormat,
- getInfoTitle, setInfoTitle,
- getImplicitOAuthFlowAuthorizationUrl, setImplicitOAuthFlowAuthorizationUrl,
- getPathItemSummary, setPathItemSummary,
- getOpenIdConnectSecuritySchemeX, setOpenIdConnectSecuritySchemeX,
- getPathItemParameters, setPathItemParameters,
- getSchemaDefault, setSchemaDefault,
- getMediaTypeExample, setMediaTypeExample,
- getInfoDescription, setInfoDescription,
- getPathItemDescription, setPathItemDescription,
- getOAuthFlowsClientCredentials, setOAuthFlowsClientCredentials,
- getParameterIn, setParameterIn,
- getXMLName, setXMLName,
- getMediaTypeEncoding, setMediaTypeEncoding,
- BoolInt(..),
- getSchemaFormat, setSchemaFormat,
- getHeaderX, setHeaderX,
- getExampleSummary, setExampleSummary,
- Server(..),
- getParameterName, setParameterName,
- getParameterContent, setParameterContent,
- Tag(..),
- getPathItemRef, setPathItemRef,
- getSchemaMinLength, setSchemaMinLength,
- getParameterSchema, setParameterSchema,
+ Components(..),
+ getParameterDeprecated, setParameterDeprecated,
+ getTagDescription, setTagDescription,
+ getSchemaProperties, setSchemaProperties,
  getOperationResponses, setOperationResponses,
- getSchemaAllOf, setSchemaAllOf,
- getLinkX, setLinkX,
+ getHeaderExample, setHeaderExample,
+ getServerVariables, setServerVariables,
+ getHeaderStyle, setHeaderStyle,
+ getExampleExternalValue, setExampleExternalValue,
+ getClientCredentialsFlowTokenUrl, setClientCredentialsFlowTokenUrl,
+ getSchemaNullable, setSchemaNullable,
+ getEncodingX, setEncodingX,
+ getReferenceRef, setReferenceRef,
+ eitherAdditionalSchema,
+ getLinkOperationRef, setLinkOperationRef,
+ getExternalDocumentationUrl, setExternalDocumentationUrl,
+ eitherAdditionalReference,
+ HTTPSecurityScheme(..),
+ getComponentsExamples, setComponentsExamples,
+ getComponentsCallbacks, setComponentsCallbacks,
+ getParameterAllowReserved, setParameterAllowReserved,
+ getPathItemPost, setPathItemPost,
+ getParameterStyle, setParameterStyle,
+ getComponentsRequestBodies, setComponentsRequestBodies,
+ getMediaTypeExamples, setMediaTypeExamples,
+ getParameterExplode, setParameterExplode,
+ getComponentsSchemas, setComponentsSchemas,
+ getReferenceX, setReferenceX,
+ PathItem(..),
+ getAuthorizationCodeOAuthFlowTokenUrl, setAuthorizationCodeOAuthFlowTokenUrl,
+ getSchemaExternalDocs, setSchemaExternalDocs,
+ getLinkDescription, setLinkDescription,
+ getPathItemParameters, setPathItemParameters,
+ getAuthorizationCodeOAuthFlowX, setAuthorizationCodeOAuthFlowX,
+ getSchemaReadOnly, setSchemaReadOnly,
+ Parameter(..),
+ getOpenAPIObjectServers, setOpenAPIObjectServers,
+ eitherSecuritySchemaHTTPSS,
  Discriminator(..),
- getOperationSecurity, setOperationSecurity,
- getHTTPSecuritySchemeDescription, setHTTPSecuritySchemeDescription,
- MediaType(..),
+ getAuthorizationCodeOAuthFlowScopes, setAuthorizationCodeOAuthFlowScopes,
+ getOAuthFlowsImplicit, setOAuthFlowsImplicit,
+ getSchemaAdditionalProperties, setSchemaAdditionalProperties,
+ getLinkRequestBody, setLinkRequestBody,
+ RequestBody(..),
+ BoolInt(..),
+ getSchemaItems, setSchemaItems,
+ getPathItemPut, setPathItemPut,
+ getInfoDescription, setInfoDescription,
+ getContactX, setContactX,
+ ClientCredentialsFlow(..),
+ getRequestBodyX, setRequestBodyX,
+ getComponentsHeaders, setComponentsHeaders,
  getExampleValue, setExampleValue,
- getXMLPrefix, setXMLPrefix,
- getDiscriminatorPropertyName, setDiscriminatorPropertyName,
- getSchemaXml, setSchemaXml,
- getHeaderExplode, setHeaderExplode,
- getServerVariableX, setServerVariableX,
+ getParameterExamples, setParameterExamples,
+ getResponseHeaders, setResponseHeaders,
+ getSchemaUniqueItems, setSchemaUniqueItems,
+ getMediaTypeSchema, setMediaTypeSchema,
+ getSchemaMinimum, setSchemaMinimum,
+ eitherSecuritySchemaAPIKeySS,
+ getHTTPSecuritySchemeDescription, setHTTPSecuritySchemeDescription,
+ getXMLNamespace, setXMLNamespace,
+ getDiscriminatorX, setDiscriminatorX,
+ getContactUrl, setContactUrl,
+ getOperationTags, setOperationTags,
+ getEncodingAllowReserved, setEncodingAllowReserved,
+ getParameterContent, setParameterContent,
+ getHTTPSecuritySchemeBearerFormat, setHTTPSecuritySchemeBearerFormat,
+ getOAuthFlowsX, setOAuthFlowsX,
+ getHeaderExamples, setHeaderExamples,
+ getInfoContact, setInfoContact,
+ getComponentsParameters, setComponentsParameters,
+ getSchemaDiscriminator, setSchemaDiscriminator,
+ MediaType(..),
+ getExampleX, setExampleX,
  getPathItemPatch, setPathItemPatch,
  getAPIKeySecuritySchemeX, setAPIKeySecuritySchemeX,
- getLinkRequestBody, setLinkRequestBody,
- getExampleDescription, setExampleDescription,
- getComponentsSchemas, setComponentsSchemas,
- Response(..),
- getClientCredentialsFlowX, setClientCredentialsFlowX,
+ getImplicitOAuthFlowX, setImplicitOAuthFlowX,
+ getTagName, setTagName,
+ getTagX, setTagX,
  getOpenIdConnectSecuritySchemeOpenIdConnectUrl, setOpenIdConnectSecuritySchemeOpenIdConnectUrl,
- getParameterExamples, setParameterExamples,
- eitherReferenceOrRealDeal,
+ getRequestBodyRequired, setRequestBodyRequired,
+ getPathItemX, setPathItemX,
  getTagExternalDocs, setTagExternalDocs,
- getEncodingAllowReserved, setEncodingAllowReserved,
- getContactX, setContactX,
- getLinkServer, setLinkServer,
- getOpenAPIObjectServers, setOpenAPIObjectServers) where
+ Contact(..),
+ Server(..),
+ getSchemaAnyOf, setSchemaAnyOf,
+ eitherItemsSingleItemReference,
+ getXMLName, setXMLName,
+ getOpenIdConnectSecuritySchemeX, setOpenIdConnectSecuritySchemeX,
+ Response(..),
+ getHeaderDeprecated, setHeaderDeprecated,
+ eitherAdditionalBool,
+ getComponentsResponses, setComponentsResponses,
+ Encoding(..),
+ getSchemaMinLength, setSchemaMinLength,
+ PasswordOAuthFlow(..),
+ getXMLPrefix, setXMLPrefix,
+ getXMLX, setXMLX,
+ APIKeySecurityScheme(..),
+ getParameterAllowEmptyValue, setParameterAllowEmptyValue,
+ getOperationRequestBody, setOperationRequestBody,
+ getSchemaXml, setSchemaXml,
+ getPasswordOAuthFlowX, setPasswordOAuthFlowX,
+ getSchemaWriteOnly, setSchemaWriteOnly,
+ getPathItemGet, setPathItemGet,
+ Link(..),
+ getOperationSecurity, setOperationSecurity,
+ getHTTPSecuritySchemeType, setHTTPSecuritySchemeType,
+ getOpenAPIObjectTags, setOpenAPIObjectTags,
+ Items(..),
+ getOperationCallbacks, setOperationCallbacks,
+ getSchemaRequired, setSchemaRequired,
+ getOperationSummary, setOperationSummary,
+ eitherBoolIntBool,
+ getOAuth2SecuritySchemeFlows, setOAuth2SecuritySchemeFlows,
+ getPasswordOAuthFlowTokenUrl, setPasswordOAuthFlowTokenUrl,
+ getHeaderAllowReserved, setHeaderAllowReserved,
+ getMediaTypeEncoding, setMediaTypeEncoding,
+ getDiscriminatorMapping, setDiscriminatorMapping,
+ eitherBoolIntInt,
+ getClientCredentialsFlowScopes, setClientCredentialsFlowScopes,
+ Operation(..),
+ getContactEmail, setContactEmail,
+ getPathItemSummary, setPathItemSummary,
+ getResponseX, setResponseX,
+ Example(..),
+ getSchemaFormat, setSchemaFormat,
+ getPasswordOAuthFlowRefreshUrl, setPasswordOAuthFlowRefreshUrl,
+ getSchemaEnum, setSchemaEnum,
+ getSchemaOneOf, setSchemaOneOf,
+ getMediaTypeX, setMediaTypeX,
+ getParameterExample, setParameterExample,
+ getLinkParameters, setLinkParameters,
+ ServerVariable(..),
+ getComponentsX, setComponentsX,
+ eitherReferenceOrRef,
+ OAuth2SecurityScheme(..),
+ ReferenceOr(..),
+ getPathItemDescription, setPathItemDescription,
+ getEncodingContentType, setEncodingContentType,
+ getSchemaMinItems, setSchemaMinItems,
+ getEncodingHeaders, setEncodingHeaders,
+ Reference(..),
+ Info(..),
+ getHeaderDescription, setHeaderDescription,
+ getResponseContent, setResponseContent,
+ Additionals(..),
+ getComponentsLinks, setComponentsLinks,
+ getServerVariableEnum, setServerVariableEnum,
+ getParameterSchema, setParameterSchema,
+ getOpenIdConnectSecuritySchemeDescription, setOpenIdConnectSecuritySchemeDescription,
+ getServerVariableDefault, setServerVariableDefault,
+ OAuthFlows(..),
+ getOpenIdConnectSecuritySchemeType, setOpenIdConnectSecuritySchemeType,
+ eitherSecuritySchemaOpenIdConnectSS,
+ getContactName, setContactName,
+ getResponseLinks, setResponseLinks,
+ getRequestBodyDescription, setRequestBodyDescription,
+ getPasswordOAuthFlowScopes, setPasswordOAuthFlowScopes,
+ getInfoLicense, setInfoLicense,
+ getOAuth2SecuritySchemeX, setOAuth2SecuritySchemeX,
+ getOperationServers, setOperationServers,
+ getSchemaDefault, setSchemaDefault,
+ getInfoX, setInfoX,
+ getLicenseName, setLicenseName,
+ getSchemaExclusiveMaximum, setSchemaExclusiveMaximum,
+ getClientCredentialsFlowX, setClientCredentialsFlowX,
+ getImplicitOAuthFlowScopes, setImplicitOAuthFlowScopes,
+ getAPIKeySecuritySchemeType, setAPIKeySecuritySchemeType,
+ getComponentsSecuritySchemes, setComponentsSecuritySchemes,
+ getPathItemOptions, setPathItemOptions,
+ Schema(..),
+ eitherItemsSingleItem,
+ getAPIKeySecuritySchemeName, setAPIKeySecuritySchemeName,
+ getHeaderX, setHeaderX,
+ getParameterRequired, setParameterRequired,
+ getSchemaMaxItems, setSchemaMaxItems,
+ License(..),
+ getPathItemDelete, setPathItemDelete,
+ getEncodingExplode, setEncodingExplode,
+ getSchemaMaximum, setSchemaMaximum,
+ getOperationDeprecated, setOperationDeprecated,
+ getSchemaAllOf, setSchemaAllOf,
+ getOpenAPIObjectExternalDocs, setOpenAPIObjectExternalDocs,
+ getDiscriminatorPropertyName, setDiscriminatorPropertyName,
+ getHeaderSchema, setHeaderSchema,
+ getOAuthFlowsClientCredentials, setOAuthFlowsClientCredentials,
+ getClientCredentialsFlowRefreshUrl, setClientCredentialsFlowRefreshUrl,
+ AuthorizationCodeOAuthFlow(..),
+ getPathItemTrace, setPathItemTrace,
+ getOpenAPIObjectComponents, setOpenAPIObjectComponents,
+ getPathItemServers, setPathItemServers,
+ getPathItemHead, setPathItemHead,
+ getOAuth2SecuritySchemeType, setOAuth2SecuritySchemeType,
+ getSchemaPattern, setSchemaPattern,
+ getXMLAttribute, setXMLAttribute,
+ getExternalDocumentationDescription, setExternalDocumentationDescription,
+ Tag(..),
+ getParameterIn, setParameterIn,
+ getHeaderAllowEmptyValue, setHeaderAllowEmptyValue,
+ eitherReferenceOrRealDeal,
+ getExternalDocumentationX, setExternalDocumentationX,
+ getInfoTitle, setInfoTitle,
+ getOpenAPIObjectSecurity, setOpenAPIObjectSecurity,
+ getHeaderRequired, setHeaderRequired,
+ getImplicitOAuthFlowAuthorizationUrl, setImplicitOAuthFlowAuthorizationUrl,
+ getLinkX, setLinkX,
+ Header(..),
+ getXMLWrapped, setXMLWrapped,
+ getOperationDescription, setOperationDescription,
+ getSchemaDeprecated, setSchemaDeprecated,
+ getEncodingStyle, setEncodingStyle,
+ getParameterName, setParameterName,
+ getAuthorizationCodeOAuthFlowRefreshUrl, setAuthorizationCodeOAuthFlowRefreshUrl,
+ getAuthorizationCodeOAuthFlowAuthorizationUrl, setAuthorizationCodeOAuthFlowAuthorizationUrl,
+ getLicenseUrl, setLicenseUrl,
+ getOpenAPIObjectOpenapi, setOpenAPIObjectOpenapi,
+ getSchemaType, setSchemaType,
+ getHeaderContent, setHeaderContent,
+ getHeaderExplode, setHeaderExplode,
+ getRequestBodyContent, setRequestBodyContent,
+ getServerDescription, setServerDescription,
+ OpenIdConnectSecurityScheme(..),
+ getImplicitOAuthFlowRefreshUrl, setImplicitOAuthFlowRefreshUrl,
+ getSchemaNot, setSchemaNot,
+ OpenAPIObject(..),
+ getInfoVersion, setInfoVersion,
+ getParameterDescription, setParameterDescription,
+ getOpenAPIObjectX, setOpenAPIObjectX,
+ getSchemaExclusiveMinimum, setSchemaExclusiveMinimum,
+ getPathItemRef, setPathItemRef,
+ SecuritySchema(..),
+ getHTTPSecuritySchemeX, setHTTPSecuritySchemeX,
+ getOpenAPIObjectInfo, setOpenAPIObjectInfo,
+ getMediaTypeExample, setMediaTypeExample,
+ getServerUrl, setServerUrl,
+ getSchemaTitle, setSchemaTitle,
+ getSchemaDescription, setSchemaDescription,
+ getSchemaX, setSchemaX,
+ getExampleDescription, setExampleDescription,
+ getServerVariableX, setServerVariableX,
+ eitherItemsTuple,
+ getSchemaMinProperties, setSchemaMinProperties,
+ getOAuth2SecuritySchemeDescription, setOAuth2SecuritySchemeDescription,
+ getOAuthFlowsAuthorizationCode, setOAuthFlowsAuthorizationCode,
+ getResponseDescription, setResponseDescription,
+ getSchemaMaxProperties, setSchemaMaxProperties,
+ getExampleSummary, setExampleSummary,
+ getOperationOperationId, setOperationOperationId,
+ getOperationX, setOperationX,
+ getServerVariableDescription, setServerVariableDescription,
+ eitherSecuritySchemaOAuth2SS) where
 
 import Prelude hiding(lookup, take)
 import qualified Prelude as P(filter)
@@ -402,88 +401,81 @@ instance FromJSON OpenAPIObject where
     <*> v .:? "components"
     <*> (pure (xify v))
 
--- |Components schemas responses parameters examples requestBodies headers securitySchemes links callbacks x
-data Components = Components {_components_schemas :: (Maybe (HashMap Text (ReferenceOr Schema))), _components_responses :: (Maybe (HashMap Text (ReferenceOr Response))), _components_parameters :: (Maybe (HashMap Text (ReferenceOr Parameter))), _components_examples :: (Maybe (HashMap Text (ReferenceOr Example))), _components_requestBodies :: (Maybe (HashMap Text (ReferenceOr RequestBody))), _components_headers :: (Maybe (HashMap Text (ReferenceOr Header))), _components_securitySchemes :: (Maybe (HashMap Text SecuritySchema)), _components_links :: (Maybe (HashMap Text (ReferenceOr Link))), _components_callbacks :: (Maybe (HashMap Text (ReferenceOr (HashMap Text PathItem)))), _components_x :: (Maybe (HashMap Text Value)) } deriving (Eq)
+-- |Server url description variables x
+data Server = Server {_server_url :: Text, _server_description :: (Maybe Text), _server_variables :: (Maybe (HashMap Text ServerVariable)), _server_x :: (Maybe (HashMap Text Value)) } deriving (Eq)
 
-getComponentsSchemas :: Components -> Maybe (HashMap Text (ReferenceOr Schema))
-getComponentsSchemas = _components_schemas
+getServerUrl :: Server -> Text
+getServerUrl = _server_url
 
-getComponentsResponses :: Components -> Maybe (HashMap Text (ReferenceOr Response))
-getComponentsResponses = _components_responses
+getServerDescription :: Server -> Maybe Text
+getServerDescription = _server_description
 
-getComponentsParameters :: Components -> Maybe (HashMap Text (ReferenceOr Parameter))
-getComponentsParameters = _components_parameters
+getServerVariables :: Server -> Maybe (HashMap Text ServerVariable)
+getServerVariables = _server_variables
 
-getComponentsExamples :: Components -> Maybe (HashMap Text (ReferenceOr Example))
-getComponentsExamples = _components_examples
+getServerX :: Server -> Maybe (HashMap Text Value)
+getServerX = _server_x
 
-getComponentsRequestBodies :: Components -> Maybe (HashMap Text (ReferenceOr RequestBody))
-getComponentsRequestBodies = _components_requestBodies
+setServerUrl :: Server -> Text -> Server
+setServerUrl _old_ _new_ = _old_ { _server_url = _new_ }
 
-getComponentsHeaders :: Components -> Maybe (HashMap Text (ReferenceOr Header))
-getComponentsHeaders = _components_headers
+setServerDescription :: Server -> Maybe Text -> Server
+setServerDescription _old_ _new_ = _old_ { _server_description = _new_ }
 
-getComponentsSecuritySchemes :: Components -> Maybe (HashMap Text SecuritySchema)
-getComponentsSecuritySchemes = _components_securitySchemes
+setServerVariables :: Server -> Maybe (HashMap Text ServerVariable) -> Server
+setServerVariables _old_ _new_ = _old_ { _server_variables = _new_ }
 
-getComponentsLinks :: Components -> Maybe (HashMap Text (ReferenceOr Link))
-getComponentsLinks = _components_links
-
-getComponentsCallbacks :: Components -> Maybe (HashMap Text (ReferenceOr (HashMap Text PathItem)))
-getComponentsCallbacks = _components_callbacks
-
-getComponentsX :: Components -> Maybe (HashMap Text Value)
-getComponentsX = _components_x
-
-setComponentsSchemas :: Components -> Maybe (HashMap Text (ReferenceOr Schema)) -> Components
-setComponentsSchemas _old_ _new_ = _old_ { _components_schemas = _new_ }
-
-setComponentsResponses :: Components -> Maybe (HashMap Text (ReferenceOr Response)) -> Components
-setComponentsResponses _old_ _new_ = _old_ { _components_responses = _new_ }
-
-setComponentsParameters :: Components -> Maybe (HashMap Text (ReferenceOr Parameter)) -> Components
-setComponentsParameters _old_ _new_ = _old_ { _components_parameters = _new_ }
-
-setComponentsExamples :: Components -> Maybe (HashMap Text (ReferenceOr Example)) -> Components
-setComponentsExamples _old_ _new_ = _old_ { _components_examples = _new_ }
-
-setComponentsRequestBodies :: Components -> Maybe (HashMap Text (ReferenceOr RequestBody)) -> Components
-setComponentsRequestBodies _old_ _new_ = _old_ { _components_requestBodies = _new_ }
-
-setComponentsHeaders :: Components -> Maybe (HashMap Text (ReferenceOr Header)) -> Components
-setComponentsHeaders _old_ _new_ = _old_ { _components_headers = _new_ }
-
-setComponentsSecuritySchemes :: Components -> Maybe (HashMap Text SecuritySchema) -> Components
-setComponentsSecuritySchemes _old_ _new_ = _old_ { _components_securitySchemes = _new_ }
-
-setComponentsLinks :: Components -> Maybe (HashMap Text (ReferenceOr Link)) -> Components
-setComponentsLinks _old_ _new_ = _old_ { _components_links = _new_ }
-
-setComponentsCallbacks :: Components -> Maybe (HashMap Text (ReferenceOr (HashMap Text PathItem))) -> Components
-setComponentsCallbacks _old_ _new_ = _old_ { _components_callbacks = _new_ }
-
-setComponentsX :: Components -> Maybe (HashMap Text Value) -> Components
-setComponentsX _old_ _new_ = _old_ { _components_x = _new_ }
+setServerX :: Server -> Maybe (HashMap Text Value) -> Server
+setServerX _old_ _new_ = _old_ { _server_x = _new_ }
 
 
-instance Show Components where
-  show (Components _schemas _responses _parameters _examples _requestBodies _headers _securitySchemes _links _callbacks _x) = show (pack "Components" <> pack "(" <> intercalate ", " (P.filter (not . DT.null) [maybe "" (\x -> pack ("schemas = Just " <> show x)) _schemas, maybe "" (\x -> pack ("responses = Just " <> show x)) _responses, maybe "" (\x -> pack ("parameters = Just " <> show x)) _parameters, maybe "" (\x -> pack ("examples = Just " <> show x)) _examples, maybe "" (\x -> pack ("requestBodies = Just " <> show x)) _requestBodies, maybe "" (\x -> pack ("headers = Just " <> show x)) _headers, maybe "" (\x -> pack ("securitySchemes = Just " <> show x)) _securitySchemes, maybe "" (\x -> pack ("links = Just " <> show x)) _links, maybe "" (\x -> pack ("callbacks = Just " <> show x)) _callbacks, maybe "" (\x -> pack ("x = Just " <> show x)) _x]) <> pack ")")
+instance Show Server where
+  show (Server _url _description _variables _x) = show (pack "Server" <> pack "(" <> intercalate ", " (P.filter (not . DT.null) [pack ("url = " <> show _url), maybe "" (\x -> pack ("description = Just " <> show x)) _description, maybe "" (\x -> pack ("variables = Just " <> show x)) _variables, maybe "" (\x -> pack ("x = Just " <> show x)) _x]) <> pack ")")
 
-instance ToJSON Components where
-  toJSON (Components _schemas _responses _parameters _examples _requestBodies _headers _securitySchemes _links _callbacks _x) =
-    object $ (maybe [] (\x -> ["schemas" .= x]) _schemas) ++ (maybe [] (\x -> ["responses" .= x]) _responses) ++ (maybe [] (\x -> ["parameters" .= x]) _parameters) ++ (maybe [] (\x -> ["examples" .= x]) _examples) ++ (maybe [] (\x -> ["requestBodies" .= x]) _requestBodies) ++ (maybe [] (\x -> ["headers" .= x]) _headers) ++ (maybe [] (\x -> ["securitySchemes" .= x]) _securitySchemes) ++ (maybe [] (\x -> ["links" .= x]) _links) ++ (maybe [] (\x -> ["callbacks" .= x]) _callbacks) ++ (maybe [] (HM.toList . (HM.map toJSON)) _x)
+instance ToJSON Server where
+  toJSON (Server _url _description _variables _x) =
+    object $ ["url" .= _url] ++ (maybe [] (\x -> ["description" .= x]) _description) ++ (maybe [] (\x -> ["variables" .= x]) _variables) ++ (maybe [] (HM.toList . (HM.map toJSON)) _x)
 
-instance FromJSON Components where
-  parseJSON = withObject "Components" $ \v -> Components
-    <$> v .:? "schemas"
-    <*> v .:? "responses"
-    <*> v .:? "parameters"
-    <*> v .:? "examples"
-    <*> v .:? "requestBodies"
-    <*> v .:? "headers"
-    <*> v .:? "securitySchemes"
-    <*> v .:? "links"
-    <*> v .:? "callbacks"
+instance FromJSON Server where
+  parseJSON = withObject "Server" $ \v -> Server
+    <$> v .: "url"
+    <*> v .:? "description"
+    <*> v .:? "variables"
+    <*> (pure (xify v))
+
+-- |ExternalDocumentation url description x
+data ExternalDocumentation = ExternalDocumentation {_externalDocumentation_url :: Text, _externalDocumentation_description :: (Maybe Text), _externalDocumentation_x :: (Maybe (HashMap Text Value)) } deriving (Eq)
+
+getExternalDocumentationUrl :: ExternalDocumentation -> Text
+getExternalDocumentationUrl = _externalDocumentation_url
+
+getExternalDocumentationDescription :: ExternalDocumentation -> Maybe Text
+getExternalDocumentationDescription = _externalDocumentation_description
+
+getExternalDocumentationX :: ExternalDocumentation -> Maybe (HashMap Text Value)
+getExternalDocumentationX = _externalDocumentation_x
+
+setExternalDocumentationUrl :: ExternalDocumentation -> Text -> ExternalDocumentation
+setExternalDocumentationUrl _old_ _new_ = _old_ { _externalDocumentation_url = _new_ }
+
+setExternalDocumentationDescription :: ExternalDocumentation -> Maybe Text -> ExternalDocumentation
+setExternalDocumentationDescription _old_ _new_ = _old_ { _externalDocumentation_description = _new_ }
+
+setExternalDocumentationX :: ExternalDocumentation -> Maybe (HashMap Text Value) -> ExternalDocumentation
+setExternalDocumentationX _old_ _new_ = _old_ { _externalDocumentation_x = _new_ }
+
+
+instance Show ExternalDocumentation where
+  show (ExternalDocumentation _url _description _x) = show (pack "ExternalDocumentation" <> pack "(" <> intercalate ", " (P.filter (not . DT.null) [pack ("url = " <> show _url), maybe "" (\x -> pack ("description = Just " <> show x)) _description, maybe "" (\x -> pack ("x = Just " <> show x)) _x]) <> pack ")")
+
+instance ToJSON ExternalDocumentation where
+  toJSON (ExternalDocumentation _url _description _x) =
+    object $ ["url" .= _url] ++ (maybe [] (\x -> ["description" .= x]) _description) ++ (maybe [] (HM.toList . (HM.map toJSON)) _x)
+
+instance FromJSON ExternalDocumentation where
+  parseJSON = withObject "ExternalDocumentation" $ \v -> ExternalDocumentation
+    <$> v .: "url"
+    <*> v .:? "description"
     <*> (pure (xify v))
 
 -- |Tag name description externalDocs x
@@ -589,6 +581,90 @@ instance FromJSON Info where
     <*> v .:? "termsOfService"
     <*> v .:? "contact"
     <*> v .:? "license"
+    <*> (pure (xify v))
+
+-- |Components schemas responses parameters examples requestBodies headers securitySchemes links callbacks x
+data Components = Components {_components_schemas :: (Maybe (HashMap Text (ReferenceOr Schema))), _components_responses :: (Maybe (HashMap Text (ReferenceOr Response))), _components_parameters :: (Maybe (HashMap Text (ReferenceOr Parameter))), _components_examples :: (Maybe (HashMap Text (ReferenceOr Example))), _components_requestBodies :: (Maybe (HashMap Text (ReferenceOr RequestBody))), _components_headers :: (Maybe (HashMap Text (ReferenceOr Header))), _components_securitySchemes :: (Maybe (HashMap Text SecuritySchema)), _components_links :: (Maybe (HashMap Text (ReferenceOr Link))), _components_callbacks :: (Maybe (HashMap Text (ReferenceOr (HashMap Text PathItem)))), _components_x :: (Maybe (HashMap Text Value)) } deriving (Eq)
+
+getComponentsSchemas :: Components -> Maybe (HashMap Text (ReferenceOr Schema))
+getComponentsSchemas = _components_schemas
+
+getComponentsResponses :: Components -> Maybe (HashMap Text (ReferenceOr Response))
+getComponentsResponses = _components_responses
+
+getComponentsParameters :: Components -> Maybe (HashMap Text (ReferenceOr Parameter))
+getComponentsParameters = _components_parameters
+
+getComponentsExamples :: Components -> Maybe (HashMap Text (ReferenceOr Example))
+getComponentsExamples = _components_examples
+
+getComponentsRequestBodies :: Components -> Maybe (HashMap Text (ReferenceOr RequestBody))
+getComponentsRequestBodies = _components_requestBodies
+
+getComponentsHeaders :: Components -> Maybe (HashMap Text (ReferenceOr Header))
+getComponentsHeaders = _components_headers
+
+getComponentsSecuritySchemes :: Components -> Maybe (HashMap Text SecuritySchema)
+getComponentsSecuritySchemes = _components_securitySchemes
+
+getComponentsLinks :: Components -> Maybe (HashMap Text (ReferenceOr Link))
+getComponentsLinks = _components_links
+
+getComponentsCallbacks :: Components -> Maybe (HashMap Text (ReferenceOr (HashMap Text PathItem)))
+getComponentsCallbacks = _components_callbacks
+
+getComponentsX :: Components -> Maybe (HashMap Text Value)
+getComponentsX = _components_x
+
+setComponentsSchemas :: Components -> Maybe (HashMap Text (ReferenceOr Schema)) -> Components
+setComponentsSchemas _old_ _new_ = _old_ { _components_schemas = _new_ }
+
+setComponentsResponses :: Components -> Maybe (HashMap Text (ReferenceOr Response)) -> Components
+setComponentsResponses _old_ _new_ = _old_ { _components_responses = _new_ }
+
+setComponentsParameters :: Components -> Maybe (HashMap Text (ReferenceOr Parameter)) -> Components
+setComponentsParameters _old_ _new_ = _old_ { _components_parameters = _new_ }
+
+setComponentsExamples :: Components -> Maybe (HashMap Text (ReferenceOr Example)) -> Components
+setComponentsExamples _old_ _new_ = _old_ { _components_examples = _new_ }
+
+setComponentsRequestBodies :: Components -> Maybe (HashMap Text (ReferenceOr RequestBody)) -> Components
+setComponentsRequestBodies _old_ _new_ = _old_ { _components_requestBodies = _new_ }
+
+setComponentsHeaders :: Components -> Maybe (HashMap Text (ReferenceOr Header)) -> Components
+setComponentsHeaders _old_ _new_ = _old_ { _components_headers = _new_ }
+
+setComponentsSecuritySchemes :: Components -> Maybe (HashMap Text SecuritySchema) -> Components
+setComponentsSecuritySchemes _old_ _new_ = _old_ { _components_securitySchemes = _new_ }
+
+setComponentsLinks :: Components -> Maybe (HashMap Text (ReferenceOr Link)) -> Components
+setComponentsLinks _old_ _new_ = _old_ { _components_links = _new_ }
+
+setComponentsCallbacks :: Components -> Maybe (HashMap Text (ReferenceOr (HashMap Text PathItem))) -> Components
+setComponentsCallbacks _old_ _new_ = _old_ { _components_callbacks = _new_ }
+
+setComponentsX :: Components -> Maybe (HashMap Text Value) -> Components
+setComponentsX _old_ _new_ = _old_ { _components_x = _new_ }
+
+
+instance Show Components where
+  show (Components _schemas _responses _parameters _examples _requestBodies _headers _securitySchemes _links _callbacks _x) = show (pack "Components" <> pack "(" <> intercalate ", " (P.filter (not . DT.null) [maybe "" (\x -> pack ("schemas = Just " <> show x)) _schemas, maybe "" (\x -> pack ("responses = Just " <> show x)) _responses, maybe "" (\x -> pack ("parameters = Just " <> show x)) _parameters, maybe "" (\x -> pack ("examples = Just " <> show x)) _examples, maybe "" (\x -> pack ("requestBodies = Just " <> show x)) _requestBodies, maybe "" (\x -> pack ("headers = Just " <> show x)) _headers, maybe "" (\x -> pack ("securitySchemes = Just " <> show x)) _securitySchemes, maybe "" (\x -> pack ("links = Just " <> show x)) _links, maybe "" (\x -> pack ("callbacks = Just " <> show x)) _callbacks, maybe "" (\x -> pack ("x = Just " <> show x)) _x]) <> pack ")")
+
+instance ToJSON Components where
+  toJSON (Components _schemas _responses _parameters _examples _requestBodies _headers _securitySchemes _links _callbacks _x) =
+    object $ (maybe [] (\x -> ["schemas" .= x]) _schemas) ++ (maybe [] (\x -> ["responses" .= x]) _responses) ++ (maybe [] (\x -> ["parameters" .= x]) _parameters) ++ (maybe [] (\x -> ["examples" .= x]) _examples) ++ (maybe [] (\x -> ["requestBodies" .= x]) _requestBodies) ++ (maybe [] (\x -> ["headers" .= x]) _headers) ++ (maybe [] (\x -> ["securitySchemes" .= x]) _securitySchemes) ++ (maybe [] (\x -> ["links" .= x]) _links) ++ (maybe [] (\x -> ["callbacks" .= x]) _callbacks) ++ (maybe [] (HM.toList . (HM.map toJSON)) _x)
+
+instance FromJSON Components where
+  parseJSON = withObject "Components" $ \v -> Components
+    <$> v .:? "schemas"
+    <*> v .:? "responses"
+    <*> v .:? "parameters"
+    <*> v .:? "examples"
+    <*> v .:? "requestBodies"
+    <*> v .:? "headers"
+    <*> v .:? "securitySchemes"
+    <*> v .:? "links"
+    <*> v .:? "callbacks"
     <*> (pure (xify v))
 
 -- |PathItem summary description servers parameters get put post delete options head patch trace $ref x
@@ -703,81 +779,144 @@ instance FromJSON PathItem where
     <*> v .:? "$ref"
     <*> (pure (xify v))
 
--- |ExternalDocumentation url description x
-data ExternalDocumentation = ExternalDocumentation {_externalDocumentation_url :: Text, _externalDocumentation_description :: (Maybe Text), _externalDocumentation_x :: (Maybe (HashMap Text Value)) } deriving (Eq)
+-- |RequestBody content description required x
+data RequestBody = RequestBody {_requestBody_content :: (HashMap Text MediaType), _requestBody_description :: (Maybe Text), _requestBody_required :: (Maybe Bool), _requestBody_x :: (Maybe (HashMap Text Value)) } deriving (Eq)
 
-getExternalDocumentationUrl :: ExternalDocumentation -> Text
-getExternalDocumentationUrl = _externalDocumentation_url
+getRequestBodyContent :: RequestBody -> HashMap Text MediaType
+getRequestBodyContent = _requestBody_content
 
-getExternalDocumentationDescription :: ExternalDocumentation -> Maybe Text
-getExternalDocumentationDescription = _externalDocumentation_description
+getRequestBodyDescription :: RequestBody -> Maybe Text
+getRequestBodyDescription = _requestBody_description
 
-getExternalDocumentationX :: ExternalDocumentation -> Maybe (HashMap Text Value)
-getExternalDocumentationX = _externalDocumentation_x
+getRequestBodyRequired :: RequestBody -> Maybe Bool
+getRequestBodyRequired = _requestBody_required
 
-setExternalDocumentationUrl :: ExternalDocumentation -> Text -> ExternalDocumentation
-setExternalDocumentationUrl _old_ _new_ = _old_ { _externalDocumentation_url = _new_ }
+getRequestBodyX :: RequestBody -> Maybe (HashMap Text Value)
+getRequestBodyX = _requestBody_x
 
-setExternalDocumentationDescription :: ExternalDocumentation -> Maybe Text -> ExternalDocumentation
-setExternalDocumentationDescription _old_ _new_ = _old_ { _externalDocumentation_description = _new_ }
+setRequestBodyContent :: RequestBody -> HashMap Text MediaType -> RequestBody
+setRequestBodyContent _old_ _new_ = _old_ { _requestBody_content = _new_ }
 
-setExternalDocumentationX :: ExternalDocumentation -> Maybe (HashMap Text Value) -> ExternalDocumentation
-setExternalDocumentationX _old_ _new_ = _old_ { _externalDocumentation_x = _new_ }
+setRequestBodyDescription :: RequestBody -> Maybe Text -> RequestBody
+setRequestBodyDescription _old_ _new_ = _old_ { _requestBody_description = _new_ }
+
+setRequestBodyRequired :: RequestBody -> Maybe Bool -> RequestBody
+setRequestBodyRequired _old_ _new_ = _old_ { _requestBody_required = _new_ }
+
+setRequestBodyX :: RequestBody -> Maybe (HashMap Text Value) -> RequestBody
+setRequestBodyX _old_ _new_ = _old_ { _requestBody_x = _new_ }
 
 
-instance Show ExternalDocumentation where
-  show (ExternalDocumentation _url _description _x) = show (pack "ExternalDocumentation" <> pack "(" <> intercalate ", " (P.filter (not . DT.null) [pack ("url = " <> show _url), maybe "" (\x -> pack ("description = Just " <> show x)) _description, maybe "" (\x -> pack ("x = Just " <> show x)) _x]) <> pack ")")
+instance Show RequestBody where
+  show (RequestBody _content _description _required _x) = show (pack "RequestBody" <> pack "(" <> intercalate ", " (P.filter (not . DT.null) [pack ("content = " <> show _content), maybe "" (\x -> pack ("description = Just " <> show x)) _description, maybe "" (\x -> pack ("required = Just " <> show x)) _required, maybe "" (\x -> pack ("x = Just " <> show x)) _x]) <> pack ")")
 
-instance ToJSON ExternalDocumentation where
-  toJSON (ExternalDocumentation _url _description _x) =
-    object $ ["url" .= _url] ++ (maybe [] (\x -> ["description" .= x]) _description) ++ (maybe [] (HM.toList . (HM.map toJSON)) _x)
+instance ToJSON RequestBody where
+  toJSON (RequestBody _content _description _required _x) =
+    object $ ["content" .= _content] ++ (maybe [] (\x -> ["description" .= x]) _description) ++ (maybe [] (\x -> ["required" .= x]) _required) ++ (maybe [] (HM.toList . (HM.map toJSON)) _x)
 
-instance FromJSON ExternalDocumentation where
-  parseJSON = withObject "ExternalDocumentation" $ \v -> ExternalDocumentation
-    <$> v .: "url"
+instance FromJSON RequestBody where
+  parseJSON = withObject "RequestBody" $ \v -> RequestBody
+    <$> v .: "content"
     <*> v .:? "description"
+    <*> v .:? "required"
     <*> (pure (xify v))
 
--- |Server url description variables x
-data Server = Server {_server_url :: Text, _server_description :: (Maybe Text), _server_variables :: (Maybe (HashMap Text ServerVariable)), _server_x :: (Maybe (HashMap Text Value)) } deriving (Eq)
+-- |Header description required deprecated allowEmptyValue style explode allowReserved schema content example examples x
+data Header = Header {_header_description :: (Maybe Text), _header_required :: (Maybe Bool), _header_deprecated :: (Maybe Bool), _header_allowEmptyValue :: (Maybe Bool), _header_style :: (Maybe Text), _header_explode :: (Maybe Bool), _header_allowReserved :: (Maybe Bool), _header_schema :: (Maybe (ReferenceOr Schema)), _header_content :: (Maybe (HashMap Text MediaType)), _header_example :: (Maybe Value), _header_examples :: (Maybe (HashMap Text (ReferenceOr Example))), _header_x :: (Maybe (HashMap Text Value)) } deriving (Eq)
 
-getServerUrl :: Server -> Text
-getServerUrl = _server_url
+getHeaderDescription :: Header -> Maybe Text
+getHeaderDescription = _header_description
 
-getServerDescription :: Server -> Maybe Text
-getServerDescription = _server_description
+getHeaderRequired :: Header -> Maybe Bool
+getHeaderRequired = _header_required
 
-getServerVariables :: Server -> Maybe (HashMap Text ServerVariable)
-getServerVariables = _server_variables
+getHeaderDeprecated :: Header -> Maybe Bool
+getHeaderDeprecated = _header_deprecated
 
-getServerX :: Server -> Maybe (HashMap Text Value)
-getServerX = _server_x
+getHeaderAllowEmptyValue :: Header -> Maybe Bool
+getHeaderAllowEmptyValue = _header_allowEmptyValue
 
-setServerUrl :: Server -> Text -> Server
-setServerUrl _old_ _new_ = _old_ { _server_url = _new_ }
+getHeaderStyle :: Header -> Maybe Text
+getHeaderStyle = _header_style
 
-setServerDescription :: Server -> Maybe Text -> Server
-setServerDescription _old_ _new_ = _old_ { _server_description = _new_ }
+getHeaderExplode :: Header -> Maybe Bool
+getHeaderExplode = _header_explode
 
-setServerVariables :: Server -> Maybe (HashMap Text ServerVariable) -> Server
-setServerVariables _old_ _new_ = _old_ { _server_variables = _new_ }
+getHeaderAllowReserved :: Header -> Maybe Bool
+getHeaderAllowReserved = _header_allowReserved
 
-setServerX :: Server -> Maybe (HashMap Text Value) -> Server
-setServerX _old_ _new_ = _old_ { _server_x = _new_ }
+getHeaderSchema :: Header -> Maybe (ReferenceOr Schema)
+getHeaderSchema = _header_schema
+
+getHeaderContent :: Header -> Maybe (HashMap Text MediaType)
+getHeaderContent = _header_content
+
+getHeaderExample :: Header -> Maybe Value
+getHeaderExample = _header_example
+
+getHeaderExamples :: Header -> Maybe (HashMap Text (ReferenceOr Example))
+getHeaderExamples = _header_examples
+
+getHeaderX :: Header -> Maybe (HashMap Text Value)
+getHeaderX = _header_x
+
+setHeaderDescription :: Header -> Maybe Text -> Header
+setHeaderDescription _old_ _new_ = _old_ { _header_description = _new_ }
+
+setHeaderRequired :: Header -> Maybe Bool -> Header
+setHeaderRequired _old_ _new_ = _old_ { _header_required = _new_ }
+
+setHeaderDeprecated :: Header -> Maybe Bool -> Header
+setHeaderDeprecated _old_ _new_ = _old_ { _header_deprecated = _new_ }
+
+setHeaderAllowEmptyValue :: Header -> Maybe Bool -> Header
+setHeaderAllowEmptyValue _old_ _new_ = _old_ { _header_allowEmptyValue = _new_ }
+
+setHeaderStyle :: Header -> Maybe Text -> Header
+setHeaderStyle _old_ _new_ = _old_ { _header_style = _new_ }
+
+setHeaderExplode :: Header -> Maybe Bool -> Header
+setHeaderExplode _old_ _new_ = _old_ { _header_explode = _new_ }
+
+setHeaderAllowReserved :: Header -> Maybe Bool -> Header
+setHeaderAllowReserved _old_ _new_ = _old_ { _header_allowReserved = _new_ }
+
+setHeaderSchema :: Header -> Maybe (ReferenceOr Schema) -> Header
+setHeaderSchema _old_ _new_ = _old_ { _header_schema = _new_ }
+
+setHeaderContent :: Header -> Maybe (HashMap Text MediaType) -> Header
+setHeaderContent _old_ _new_ = _old_ { _header_content = _new_ }
+
+setHeaderExample :: Header -> Maybe Value -> Header
+setHeaderExample _old_ _new_ = _old_ { _header_example = _new_ }
+
+setHeaderExamples :: Header -> Maybe (HashMap Text (ReferenceOr Example)) -> Header
+setHeaderExamples _old_ _new_ = _old_ { _header_examples = _new_ }
+
+setHeaderX :: Header -> Maybe (HashMap Text Value) -> Header
+setHeaderX _old_ _new_ = _old_ { _header_x = _new_ }
 
 
-instance Show Server where
-  show (Server _url _description _variables _x) = show (pack "Server" <> pack "(" <> intercalate ", " (P.filter (not . DT.null) [pack ("url = " <> show _url), maybe "" (\x -> pack ("description = Just " <> show x)) _description, maybe "" (\x -> pack ("variables = Just " <> show x)) _variables, maybe "" (\x -> pack ("x = Just " <> show x)) _x]) <> pack ")")
+instance Show Header where
+  show (Header _description _required _deprecated _allowEmptyValue _style _explode _allowReserved _schema _content _example _examples _x) = show (pack "Header" <> pack "(" <> intercalate ", " (P.filter (not . DT.null) [maybe "" (\x -> pack ("description = Just " <> show x)) _description, maybe "" (\x -> pack ("required = Just " <> show x)) _required, maybe "" (\x -> pack ("deprecated = Just " <> show x)) _deprecated, maybe "" (\x -> pack ("allowEmptyValue = Just " <> show x)) _allowEmptyValue, maybe "" (\x -> pack ("style = Just " <> show x)) _style, maybe "" (\x -> pack ("explode = Just " <> show x)) _explode, maybe "" (\x -> pack ("allowReserved = Just " <> show x)) _allowReserved, maybe "" (\x -> pack ("schema = Just " <> show x)) _schema, maybe "" (\x -> pack ("content = Just " <> show x)) _content, maybe "" (\x -> pack ("example = Just " <> show x)) _example, maybe "" (\x -> pack ("examples = Just " <> show x)) _examples, maybe "" (\x -> pack ("x = Just " <> show x)) _x]) <> pack ")")
 
-instance ToJSON Server where
-  toJSON (Server _url _description _variables _x) =
-    object $ ["url" .= _url] ++ (maybe [] (\x -> ["description" .= x]) _description) ++ (maybe [] (\x -> ["variables" .= x]) _variables) ++ (maybe [] (HM.toList . (HM.map toJSON)) _x)
+instance ToJSON Header where
+  toJSON (Header _description _required _deprecated _allowEmptyValue _style _explode _allowReserved _schema _content _example _examples _x) =
+    object $ (maybe [] (\x -> ["description" .= x]) _description) ++ (maybe [] (\x -> ["required" .= x]) _required) ++ (maybe [] (\x -> ["deprecated" .= x]) _deprecated) ++ (maybe [] (\x -> ["allowEmptyValue" .= x]) _allowEmptyValue) ++ (maybe [] (\x -> ["style" .= x]) _style) ++ (maybe [] (\x -> ["explode" .= x]) _explode) ++ (maybe [] (\x -> ["allowReserved" .= x]) _allowReserved) ++ (maybe [] (\x -> ["schema" .= x]) _schema) ++ (maybe [] (\x -> ["content" .= x]) _content) ++ (maybe [] (\x -> ["example" .= x]) _example) ++ (maybe [] (\x -> ["examples" .= x]) _examples) ++ (maybe [] (HM.toList . (HM.map toJSON)) _x)
 
-instance FromJSON Server where
-  parseJSON = withObject "Server" $ \v -> Server
-    <$> v .: "url"
-    <*> v .:? "description"
-    <*> v .:? "variables"
+instance FromJSON Header where
+  parseJSON = withObject "Header" $ \v -> Header
+    <$> v .:? "description"
+    <*> v .:? "required"
+    <*> v .:? "deprecated"
+    <*> v .:? "allowEmptyValue"
+    <*> v .:? "style"
+    <*> v .:? "explode"
+    <*> v .:? "allowReserved"
+    <*> v .:? "schema"
+    <*> v .:? "content"
+    <*> v .:? "example"
+    <*> v .:? "examples"
     <*> (pure (xify v))
 
 -- |ServerVariable default enum description x
@@ -822,249 +961,53 @@ instance FromJSON ServerVariable where
     <*> v .:? "description"
     <*> (pure (xify v))
 
--- |Operation responses tags summary description externalDocs operationId parameters requestBody callbacks deprecated security servers x
-data Operation = Operation {_operation_responses :: (HashMap Text (ReferenceOr Response)), _operation_tags :: (Maybe [Text]), _operation_summary :: (Maybe Text), _operation_description :: (Maybe Text), _operation_externalDocs :: (Maybe ExternalDocumentation), _operation_operationId :: (Maybe Text), _operation_parameters :: (Maybe [ReferenceOr Parameter]), _operation_requestBody :: (Maybe (ReferenceOr RequestBody)), _operation_callbacks :: (Maybe (HashMap Text (ReferenceOr (HashMap Text PathItem)))), _operation_deprecated :: (Maybe Bool), _operation_security :: (Maybe [HashMap Text [Text]]), _operation_servers :: (Maybe [Server]), _operation_x :: (Maybe (HashMap Text Value)) } deriving (Eq)
+-- |Example summary description value externalValue x
+data Example = Example {_example_summary :: (Maybe Text), _example_description :: (Maybe Text), _example_value :: (Maybe Value), _example_externalValue :: (Maybe Text), _example_x :: (Maybe (HashMap Text Value)) } deriving (Eq)
 
-getOperationResponses :: Operation -> HashMap Text (ReferenceOr Response)
-getOperationResponses = _operation_responses
+getExampleSummary :: Example -> Maybe Text
+getExampleSummary = _example_summary
 
-getOperationTags :: Operation -> Maybe [Text]
-getOperationTags = _operation_tags
+getExampleDescription :: Example -> Maybe Text
+getExampleDescription = _example_description
 
-getOperationSummary :: Operation -> Maybe Text
-getOperationSummary = _operation_summary
+getExampleValue :: Example -> Maybe Value
+getExampleValue = _example_value
 
-getOperationDescription :: Operation -> Maybe Text
-getOperationDescription = _operation_description
+getExampleExternalValue :: Example -> Maybe Text
+getExampleExternalValue = _example_externalValue
 
-getOperationExternalDocs :: Operation -> Maybe ExternalDocumentation
-getOperationExternalDocs = _operation_externalDocs
+getExampleX :: Example -> Maybe (HashMap Text Value)
+getExampleX = _example_x
 
-getOperationOperationId :: Operation -> Maybe Text
-getOperationOperationId = _operation_operationId
+setExampleSummary :: Example -> Maybe Text -> Example
+setExampleSummary _old_ _new_ = _old_ { _example_summary = _new_ }
 
-getOperationParameters :: Operation -> Maybe [ReferenceOr Parameter]
-getOperationParameters = _operation_parameters
+setExampleDescription :: Example -> Maybe Text -> Example
+setExampleDescription _old_ _new_ = _old_ { _example_description = _new_ }
 
-getOperationRequestBody :: Operation -> Maybe (ReferenceOr RequestBody)
-getOperationRequestBody = _operation_requestBody
+setExampleValue :: Example -> Maybe Value -> Example
+setExampleValue _old_ _new_ = _old_ { _example_value = _new_ }
 
-getOperationCallbacks :: Operation -> Maybe (HashMap Text (ReferenceOr (HashMap Text PathItem)))
-getOperationCallbacks = _operation_callbacks
+setExampleExternalValue :: Example -> Maybe Text -> Example
+setExampleExternalValue _old_ _new_ = _old_ { _example_externalValue = _new_ }
 
-getOperationDeprecated :: Operation -> Maybe Bool
-getOperationDeprecated = _operation_deprecated
-
-getOperationSecurity :: Operation -> Maybe [HashMap Text [Text]]
-getOperationSecurity = _operation_security
-
-getOperationServers :: Operation -> Maybe [Server]
-getOperationServers = _operation_servers
-
-getOperationX :: Operation -> Maybe (HashMap Text Value)
-getOperationX = _operation_x
-
-setOperationResponses :: Operation -> HashMap Text (ReferenceOr Response) -> Operation
-setOperationResponses _old_ _new_ = _old_ { _operation_responses = _new_ }
-
-setOperationTags :: Operation -> Maybe [Text] -> Operation
-setOperationTags _old_ _new_ = _old_ { _operation_tags = _new_ }
-
-setOperationSummary :: Operation -> Maybe Text -> Operation
-setOperationSummary _old_ _new_ = _old_ { _operation_summary = _new_ }
-
-setOperationDescription :: Operation -> Maybe Text -> Operation
-setOperationDescription _old_ _new_ = _old_ { _operation_description = _new_ }
-
-setOperationExternalDocs :: Operation -> Maybe ExternalDocumentation -> Operation
-setOperationExternalDocs _old_ _new_ = _old_ { _operation_externalDocs = _new_ }
-
-setOperationOperationId :: Operation -> Maybe Text -> Operation
-setOperationOperationId _old_ _new_ = _old_ { _operation_operationId = _new_ }
-
-setOperationParameters :: Operation -> Maybe [ReferenceOr Parameter] -> Operation
-setOperationParameters _old_ _new_ = _old_ { _operation_parameters = _new_ }
-
-setOperationRequestBody :: Operation -> Maybe (ReferenceOr RequestBody) -> Operation
-setOperationRequestBody _old_ _new_ = _old_ { _operation_requestBody = _new_ }
-
-setOperationCallbacks :: Operation -> Maybe (HashMap Text (ReferenceOr (HashMap Text PathItem))) -> Operation
-setOperationCallbacks _old_ _new_ = _old_ { _operation_callbacks = _new_ }
-
-setOperationDeprecated :: Operation -> Maybe Bool -> Operation
-setOperationDeprecated _old_ _new_ = _old_ { _operation_deprecated = _new_ }
-
-setOperationSecurity :: Operation -> Maybe [HashMap Text [Text]] -> Operation
-setOperationSecurity _old_ _new_ = _old_ { _operation_security = _new_ }
-
-setOperationServers :: Operation -> Maybe [Server] -> Operation
-setOperationServers _old_ _new_ = _old_ { _operation_servers = _new_ }
-
-setOperationX :: Operation -> Maybe (HashMap Text Value) -> Operation
-setOperationX _old_ _new_ = _old_ { _operation_x = _new_ }
+setExampleX :: Example -> Maybe (HashMap Text Value) -> Example
+setExampleX _old_ _new_ = _old_ { _example_x = _new_ }
 
 
-instance Show Operation where
-  show (Operation _responses _tags _summary _description _externalDocs _operationId _parameters _requestBody _callbacks _deprecated _security _servers _x) = show (pack "Operation" <> pack "(" <> intercalate ", " (P.filter (not . DT.null) [pack ("responses = " <> show _responses), maybe "" (\x -> pack ("tags = Just " <> show x)) _tags, maybe "" (\x -> pack ("summary = Just " <> show x)) _summary, maybe "" (\x -> pack ("description = Just " <> show x)) _description, maybe "" (\x -> pack ("externalDocs = Just " <> show x)) _externalDocs, maybe "" (\x -> pack ("operationId = Just " <> show x)) _operationId, maybe "" (\x -> pack ("parameters = Just " <> show x)) _parameters, maybe "" (\x -> pack ("requestBody = Just " <> show x)) _requestBody, maybe "" (\x -> pack ("callbacks = Just " <> show x)) _callbacks, maybe "" (\x -> pack ("deprecated = Just " <> show x)) _deprecated, maybe "" (\x -> pack ("security = Just " <> show x)) _security, maybe "" (\x -> pack ("servers = Just " <> show x)) _servers, maybe "" (\x -> pack ("x = Just " <> show x)) _x]) <> pack ")")
+instance Show Example where
+  show (Example _summary _description _value _externalValue _x) = show (pack "Example" <> pack "(" <> intercalate ", " (P.filter (not . DT.null) [maybe "" (\x -> pack ("summary = Just " <> show x)) _summary, maybe "" (\x -> pack ("description = Just " <> show x)) _description, maybe "" (\x -> pack ("value = Just " <> show x)) _value, maybe "" (\x -> pack ("externalValue = Just " <> show x)) _externalValue, maybe "" (\x -> pack ("x = Just " <> show x)) _x]) <> pack ")")
 
-instance ToJSON Operation where
-  toJSON (Operation _responses _tags _summary _description _externalDocs _operationId _parameters _requestBody _callbacks _deprecated _security _servers _x) =
-    object $ ["responses" .= _responses] ++ (maybe [] (\x -> ["tags" .= x]) _tags) ++ (maybe [] (\x -> ["summary" .= x]) _summary) ++ (maybe [] (\x -> ["description" .= x]) _description) ++ (maybe [] (\x -> ["externalDocs" .= x]) _externalDocs) ++ (maybe [] (\x -> ["operationId" .= x]) _operationId) ++ (maybe [] (\x -> ["parameters" .= x]) _parameters) ++ (maybe [] (\x -> ["requestBody" .= x]) _requestBody) ++ (maybe [] (\x -> ["callbacks" .= x]) _callbacks) ++ (maybe [] (\x -> ["deprecated" .= x]) _deprecated) ++ (maybe [] (\x -> ["security" .= x]) _security) ++ (maybe [] (\x -> ["servers" .= x]) _servers) ++ (maybe [] (HM.toList . (HM.map toJSON)) _x)
+instance ToJSON Example where
+  toJSON (Example _summary _description _value _externalValue _x) =
+    object $ (maybe [] (\x -> ["summary" .= x]) _summary) ++ (maybe [] (\x -> ["description" .= x]) _description) ++ (maybe [] (\x -> ["value" .= x]) _value) ++ (maybe [] (\x -> ["externalValue" .= x]) _externalValue) ++ (maybe [] (HM.toList . (HM.map toJSON)) _x)
 
-instance FromJSON Operation where
-  parseJSON = withObject "Operation" $ \v -> Operation
-    <$> v .: "responses"
-    <*> v .:? "tags"
-    <*> v .:? "summary"
+instance FromJSON Example where
+  parseJSON = withObject "Example" $ \v -> Example
+    <$> v .:? "summary"
     <*> v .:? "description"
-    <*> v .:? "externalDocs"
-    <*> v .:? "operationId"
-    <*> v .:? "parameters"
-    <*> v .:? "requestBody"
-    <*> v .:? "callbacks"
-    <*> v .:? "deprecated"
-    <*> v .:? "security"
-    <*> v .:? "servers"
-    <*> (pure (xify v))
-
--- |Contact name url email x
-data Contact = Contact {_contact_name :: (Maybe Text), _contact_url :: (Maybe Text), _contact_email :: (Maybe Text), _contact_x :: (Maybe (HashMap Text Value)) } deriving (Eq)
-
-getContactName :: Contact -> Maybe Text
-getContactName = _contact_name
-
-getContactUrl :: Contact -> Maybe Text
-getContactUrl = _contact_url
-
-getContactEmail :: Contact -> Maybe Text
-getContactEmail = _contact_email
-
-getContactX :: Contact -> Maybe (HashMap Text Value)
-getContactX = _contact_x
-
-setContactName :: Contact -> Maybe Text -> Contact
-setContactName _old_ _new_ = _old_ { _contact_name = _new_ }
-
-setContactUrl :: Contact -> Maybe Text -> Contact
-setContactUrl _old_ _new_ = _old_ { _contact_url = _new_ }
-
-setContactEmail :: Contact -> Maybe Text -> Contact
-setContactEmail _old_ _new_ = _old_ { _contact_email = _new_ }
-
-setContactX :: Contact -> Maybe (HashMap Text Value) -> Contact
-setContactX _old_ _new_ = _old_ { _contact_x = _new_ }
-
-
-instance Show Contact where
-  show (Contact _name _url _email _x) = show (pack "Contact" <> pack "(" <> intercalate ", " (P.filter (not . DT.null) [maybe "" (\x -> pack ("name = Just " <> show x)) _name, maybe "" (\x -> pack ("url = Just " <> show x)) _url, maybe "" (\x -> pack ("email = Just " <> show x)) _email, maybe "" (\x -> pack ("x = Just " <> show x)) _x]) <> pack ")")
-
-instance ToJSON Contact where
-  toJSON (Contact _name _url _email _x) =
-    object $ (maybe [] (\x -> ["name" .= x]) _name) ++ (maybe [] (\x -> ["url" .= x]) _url) ++ (maybe [] (\x -> ["email" .= x]) _email) ++ (maybe [] (HM.toList . (HM.map toJSON)) _x)
-
-instance FromJSON Contact where
-  parseJSON = withObject "Contact" $ \v -> Contact
-    <$> v .:? "name"
-    <*> v .:? "url"
-    <*> v .:? "email"
-    <*> (pure (xify v))
-
--- |Link operationId operationRef parameters requestBody description server x
-data Link = Link {_link_operationId :: (Maybe Text), _link_operationRef :: (Maybe Text), _link_parameters :: (Maybe (HashMap Text Value)), _link_requestBody :: (Maybe Value), _link_description :: (Maybe Text), _link_server :: (Maybe Server), _link_x :: (Maybe (HashMap Text Value)) } deriving (Eq)
-
-getLinkOperationId :: Link -> Maybe Text
-getLinkOperationId = _link_operationId
-
-getLinkOperationRef :: Link -> Maybe Text
-getLinkOperationRef = _link_operationRef
-
-getLinkParameters :: Link -> Maybe (HashMap Text Value)
-getLinkParameters = _link_parameters
-
-getLinkRequestBody :: Link -> Maybe Value
-getLinkRequestBody = _link_requestBody
-
-getLinkDescription :: Link -> Maybe Text
-getLinkDescription = _link_description
-
-getLinkServer :: Link -> Maybe Server
-getLinkServer = _link_server
-
-getLinkX :: Link -> Maybe (HashMap Text Value)
-getLinkX = _link_x
-
-setLinkOperationId :: Link -> Maybe Text -> Link
-setLinkOperationId _old_ _new_ = _old_ { _link_operationId = _new_ }
-
-setLinkOperationRef :: Link -> Maybe Text -> Link
-setLinkOperationRef _old_ _new_ = _old_ { _link_operationRef = _new_ }
-
-setLinkParameters :: Link -> Maybe (HashMap Text Value) -> Link
-setLinkParameters _old_ _new_ = _old_ { _link_parameters = _new_ }
-
-setLinkRequestBody :: Link -> Maybe Value -> Link
-setLinkRequestBody _old_ _new_ = _old_ { _link_requestBody = _new_ }
-
-setLinkDescription :: Link -> Maybe Text -> Link
-setLinkDescription _old_ _new_ = _old_ { _link_description = _new_ }
-
-setLinkServer :: Link -> Maybe Server -> Link
-setLinkServer _old_ _new_ = _old_ { _link_server = _new_ }
-
-setLinkX :: Link -> Maybe (HashMap Text Value) -> Link
-setLinkX _old_ _new_ = _old_ { _link_x = _new_ }
-
-
-instance Show Link where
-  show (Link _operationId _operationRef _parameters _requestBody _description _server _x) = show (pack "Link" <> pack "(" <> intercalate ", " (P.filter (not . DT.null) [maybe "" (\x -> pack ("operationId = Just " <> show x)) _operationId, maybe "" (\x -> pack ("operationRef = Just " <> show x)) _operationRef, maybe "" (\x -> pack ("parameters = Just " <> show x)) _parameters, maybe "" (\x -> pack ("requestBody = Just " <> show x)) _requestBody, maybe "" (\x -> pack ("description = Just " <> show x)) _description, maybe "" (\x -> pack ("server = Just " <> show x)) _server, maybe "" (\x -> pack ("x = Just " <> show x)) _x]) <> pack ")")
-
-instance ToJSON Link where
-  toJSON (Link _operationId _operationRef _parameters _requestBody _description _server _x) =
-    object $ (maybe [] (\x -> ["operationId" .= x]) _operationId) ++ (maybe [] (\x -> ["operationRef" .= x]) _operationRef) ++ (maybe [] (\x -> ["parameters" .= x]) _parameters) ++ (maybe [] (\x -> ["requestBody" .= x]) _requestBody) ++ (maybe [] (\x -> ["description" .= x]) _description) ++ (maybe [] (\x -> ["server" .= x]) _server) ++ (maybe [] (HM.toList . (HM.map toJSON)) _x)
-
-instance FromJSON Link where
-  parseJSON = withObject "Link" $ \v -> Link
-    <$> v .:? "operationId"
-    <*> v .:? "operationRef"
-    <*> v .:? "parameters"
-    <*> v .:? "requestBody"
-    <*> v .:? "description"
-    <*> v .:? "server"
-    <*> (pure (xify v))
-
--- |License name url x
-data License = License {_license_name :: Text, _license_url :: (Maybe Text), _license_x :: (Maybe (HashMap Text Value)) } deriving (Eq)
-
-getLicenseName :: License -> Text
-getLicenseName = _license_name
-
-getLicenseUrl :: License -> Maybe Text
-getLicenseUrl = _license_url
-
-getLicenseX :: License -> Maybe (HashMap Text Value)
-getLicenseX = _license_x
-
-setLicenseName :: License -> Text -> License
-setLicenseName _old_ _new_ = _old_ { _license_name = _new_ }
-
-setLicenseUrl :: License -> Maybe Text -> License
-setLicenseUrl _old_ _new_ = _old_ { _license_url = _new_ }
-
-setLicenseX :: License -> Maybe (HashMap Text Value) -> License
-setLicenseX _old_ _new_ = _old_ { _license_x = _new_ }
-
-
-instance Show License where
-  show (License _name _url _x) = show (pack "License" <> pack "(" <> intercalate ", " (P.filter (not . DT.null) [pack ("name = " <> show _name), maybe "" (\x -> pack ("url = Just " <> show x)) _url, maybe "" (\x -> pack ("x = Just " <> show x)) _x]) <> pack ")")
-
-instance ToJSON License where
-  toJSON (License _name _url _x) =
-    object $ ["name" .= _name] ++ (maybe [] (\x -> ["url" .= x]) _url) ++ (maybe [] (HM.toList . (HM.map toJSON)) _x)
-
-instance FromJSON License where
-  parseJSON = withObject "License" $ \v -> License
-    <$> v .: "name"
-    <*> v .:? "url"
+    <*> v .:? "value"
+    <*> v .:? "externalValue"
     <*> (pure (xify v))
 
 -- |Parameter name in description required deprecated allowEmptyValue style explode allowReserved schema content example examples x
@@ -1179,188 +1122,158 @@ instance FromJSON Parameter where
     <*> v .:? "examples"
     <*> (pure (xify v))
 
-data SecuritySchema = APIKeySS APIKeySecurityScheme | HTTPSS HTTPSecurityScheme | OAuth2SS OAuth2SecurityScheme | OpenIdConnectSS OpenIdConnectSecurityScheme | TextSS Text | ReferenceSS Reference deriving(Show, Eq)
+-- |Response description headers content links x
+data Response = Response {_response_description :: Text, _response_headers :: (Maybe (HashMap Text (ReferenceOr Header))), _response_content :: (Maybe (HashMap Text MediaType)), _response_links :: (Maybe (HashMap Text (ReferenceOr Link))), _response_x :: (Maybe (HashMap Text Value)) } deriving (Eq)
 
-instance FromJSON SecuritySchema where
-  parseJSON obj@(Object o) = do
-    tp <- o .: "type" :: Parser Text
-    case tp of
-      "apiKey" -> APIKeySS <$> parseJSON obj
-      "http" -> HTTPSS <$> parseJSON obj
-      "oauth2" -> OAuth2SS <$> parseJSON obj
-      "openIdConnect" -> OpenIdConnectSS <$> parseJSON obj
-      _ -> ReferenceSS <$> parseJSON obj
-  parseJSON st@(String s) = TextSS <$> parseJSON st
+getResponseDescription :: Response -> Text
+getResponseDescription = _response_description
 
-instance ToJSON SecuritySchema where
-  toJSON (APIKeySS s) = toJSON s
-  toJSON (HTTPSS r) = toJSON r
-  toJSON (OAuth2SS r) = toJSON r
-  toJSON (OpenIdConnectSS r) = toJSON r
-  toJSON (TextSS r) = toJSON r
-  toJSON (ReferenceSS b) = toJSON b
+getResponseHeaders :: Response -> Maybe (HashMap Text (ReferenceOr Header))
+getResponseHeaders = _response_headers
 
-eitherSecuritySchemaAPIKeySS :: SecuritySchema -> Either SecuritySchema APIKeySecurityScheme
-eitherSecuritySchemaAPIKeySS (APIKeySS r) = Right r
-eitherSecuritySchemaAPIKeySS l = Left l
+getResponseContent :: Response -> Maybe (HashMap Text MediaType)
+getResponseContent = _response_content
 
-eitherSecuritySchemaHTTPSS :: SecuritySchema -> Either SecuritySchema HTTPSecurityScheme
-eitherSecuritySchemaHTTPSS (HTTPSS r) = Right r
-eitherSecuritySchemaHTTPSS l = Left l
+getResponseLinks :: Response -> Maybe (HashMap Text (ReferenceOr Link))
+getResponseLinks = _response_links
 
-eitherSecuritySchemaOAuth2SS :: SecuritySchema -> Either SecuritySchema OAuth2SecurityScheme
-eitherSecuritySchemaOAuth2SS (OAuth2SS r) = Right r
-eitherSecuritySchemaOAuth2SS l = Left l
+getResponseX :: Response -> Maybe (HashMap Text Value)
+getResponseX = _response_x
 
-eitherSecuritySchemaOpenIdConnectSS :: SecuritySchema -> Either SecuritySchema OpenIdConnectSecurityScheme
-eitherSecuritySchemaOpenIdConnectSS (OpenIdConnectSS r) = Right r
-eitherSecuritySchemaOpenIdConnectSS l = Left l
+setResponseDescription :: Response -> Text -> Response
+setResponseDescription _old_ _new_ = _old_ { _response_description = _new_ }
 
--- |Header description required deprecated allowEmptyValue style explode allowReserved schema content example examples x
-data Header = Header {_header_description :: (Maybe Text), _header_required :: (Maybe Bool), _header_deprecated :: (Maybe Bool), _header_allowEmptyValue :: (Maybe Bool), _header_style :: (Maybe Text), _header_explode :: (Maybe Bool), _header_allowReserved :: (Maybe Bool), _header_schema :: (Maybe (ReferenceOr Schema)), _header_content :: (Maybe (HashMap Text MediaType)), _header_example :: (Maybe Value), _header_examples :: (Maybe (HashMap Text (ReferenceOr Example))), _header_x :: (Maybe (HashMap Text Value)) } deriving (Eq)
+setResponseHeaders :: Response -> Maybe (HashMap Text (ReferenceOr Header)) -> Response
+setResponseHeaders _old_ _new_ = _old_ { _response_headers = _new_ }
 
-getHeaderDescription :: Header -> Maybe Text
-getHeaderDescription = _header_description
+setResponseContent :: Response -> Maybe (HashMap Text MediaType) -> Response
+setResponseContent _old_ _new_ = _old_ { _response_content = _new_ }
 
-getHeaderRequired :: Header -> Maybe Bool
-getHeaderRequired = _header_required
+setResponseLinks :: Response -> Maybe (HashMap Text (ReferenceOr Link)) -> Response
+setResponseLinks _old_ _new_ = _old_ { _response_links = _new_ }
 
-getHeaderDeprecated :: Header -> Maybe Bool
-getHeaderDeprecated = _header_deprecated
-
-getHeaderAllowEmptyValue :: Header -> Maybe Bool
-getHeaderAllowEmptyValue = _header_allowEmptyValue
-
-getHeaderStyle :: Header -> Maybe Text
-getHeaderStyle = _header_style
-
-getHeaderExplode :: Header -> Maybe Bool
-getHeaderExplode = _header_explode
-
-getHeaderAllowReserved :: Header -> Maybe Bool
-getHeaderAllowReserved = _header_allowReserved
-
-getHeaderSchema :: Header -> Maybe (ReferenceOr Schema)
-getHeaderSchema = _header_schema
-
-getHeaderContent :: Header -> Maybe (HashMap Text MediaType)
-getHeaderContent = _header_content
-
-getHeaderExample :: Header -> Maybe Value
-getHeaderExample = _header_example
-
-getHeaderExamples :: Header -> Maybe (HashMap Text (ReferenceOr Example))
-getHeaderExamples = _header_examples
-
-getHeaderX :: Header -> Maybe (HashMap Text Value)
-getHeaderX = _header_x
-
-setHeaderDescription :: Header -> Maybe Text -> Header
-setHeaderDescription _old_ _new_ = _old_ { _header_description = _new_ }
-
-setHeaderRequired :: Header -> Maybe Bool -> Header
-setHeaderRequired _old_ _new_ = _old_ { _header_required = _new_ }
-
-setHeaderDeprecated :: Header -> Maybe Bool -> Header
-setHeaderDeprecated _old_ _new_ = _old_ { _header_deprecated = _new_ }
-
-setHeaderAllowEmptyValue :: Header -> Maybe Bool -> Header
-setHeaderAllowEmptyValue _old_ _new_ = _old_ { _header_allowEmptyValue = _new_ }
-
-setHeaderStyle :: Header -> Maybe Text -> Header
-setHeaderStyle _old_ _new_ = _old_ { _header_style = _new_ }
-
-setHeaderExplode :: Header -> Maybe Bool -> Header
-setHeaderExplode _old_ _new_ = _old_ { _header_explode = _new_ }
-
-setHeaderAllowReserved :: Header -> Maybe Bool -> Header
-setHeaderAllowReserved _old_ _new_ = _old_ { _header_allowReserved = _new_ }
-
-setHeaderSchema :: Header -> Maybe (ReferenceOr Schema) -> Header
-setHeaderSchema _old_ _new_ = _old_ { _header_schema = _new_ }
-
-setHeaderContent :: Header -> Maybe (HashMap Text MediaType) -> Header
-setHeaderContent _old_ _new_ = _old_ { _header_content = _new_ }
-
-setHeaderExample :: Header -> Maybe Value -> Header
-setHeaderExample _old_ _new_ = _old_ { _header_example = _new_ }
-
-setHeaderExamples :: Header -> Maybe (HashMap Text (ReferenceOr Example)) -> Header
-setHeaderExamples _old_ _new_ = _old_ { _header_examples = _new_ }
-
-setHeaderX :: Header -> Maybe (HashMap Text Value) -> Header
-setHeaderX _old_ _new_ = _old_ { _header_x = _new_ }
+setResponseX :: Response -> Maybe (HashMap Text Value) -> Response
+setResponseX _old_ _new_ = _old_ { _response_x = _new_ }
 
 
-instance Show Header where
-  show (Header _description _required _deprecated _allowEmptyValue _style _explode _allowReserved _schema _content _example _examples _x) = show (pack "Header" <> pack "(" <> intercalate ", " (P.filter (not . DT.null) [maybe "" (\x -> pack ("description = Just " <> show x)) _description, maybe "" (\x -> pack ("required = Just " <> show x)) _required, maybe "" (\x -> pack ("deprecated = Just " <> show x)) _deprecated, maybe "" (\x -> pack ("allowEmptyValue = Just " <> show x)) _allowEmptyValue, maybe "" (\x -> pack ("style = Just " <> show x)) _style, maybe "" (\x -> pack ("explode = Just " <> show x)) _explode, maybe "" (\x -> pack ("allowReserved = Just " <> show x)) _allowReserved, maybe "" (\x -> pack ("schema = Just " <> show x)) _schema, maybe "" (\x -> pack ("content = Just " <> show x)) _content, maybe "" (\x -> pack ("example = Just " <> show x)) _example, maybe "" (\x -> pack ("examples = Just " <> show x)) _examples, maybe "" (\x -> pack ("x = Just " <> show x)) _x]) <> pack ")")
+instance Show Response where
+  show (Response _description _headers _content _links _x) = show (pack "Response" <> pack "(" <> intercalate ", " (P.filter (not . DT.null) [pack ("description = " <> show _description), maybe "" (\x -> pack ("headers = Just " <> show x)) _headers, maybe "" (\x -> pack ("content = Just " <> show x)) _content, maybe "" (\x -> pack ("links = Just " <> show x)) _links, maybe "" (\x -> pack ("x = Just " <> show x)) _x]) <> pack ")")
 
-instance ToJSON Header where
-  toJSON (Header _description _required _deprecated _allowEmptyValue _style _explode _allowReserved _schema _content _example _examples _x) =
-    object $ (maybe [] (\x -> ["description" .= x]) _description) ++ (maybe [] (\x -> ["required" .= x]) _required) ++ (maybe [] (\x -> ["deprecated" .= x]) _deprecated) ++ (maybe [] (\x -> ["allowEmptyValue" .= x]) _allowEmptyValue) ++ (maybe [] (\x -> ["style" .= x]) _style) ++ (maybe [] (\x -> ["explode" .= x]) _explode) ++ (maybe [] (\x -> ["allowReserved" .= x]) _allowReserved) ++ (maybe [] (\x -> ["schema" .= x]) _schema) ++ (maybe [] (\x -> ["content" .= x]) _content) ++ (maybe [] (\x -> ["example" .= x]) _example) ++ (maybe [] (\x -> ["examples" .= x]) _examples) ++ (maybe [] (HM.toList . (HM.map toJSON)) _x)
+instance ToJSON Response where
+  toJSON (Response _description _headers _content _links _x) =
+    object $ ["description" .= _description] ++ (maybe [] (\x -> ["headers" .= x]) _headers) ++ (maybe [] (\x -> ["content" .= x]) _content) ++ (maybe [] (\x -> ["links" .= x]) _links) ++ (maybe [] (HM.toList . (HM.map toJSON)) _x)
 
-instance FromJSON Header where
-  parseJSON = withObject "Header" $ \v -> Header
-    <$> v .:? "description"
-    <*> v .:? "required"
-    <*> v .:? "deprecated"
-    <*> v .:? "allowEmptyValue"
-    <*> v .:? "style"
-    <*> v .:? "explode"
-    <*> v .:? "allowReserved"
-    <*> v .:? "schema"
+instance FromJSON Response where
+  parseJSON = withObject "Response" $ \v -> Response
+    <$> v .: "description"
+    <*> v .:? "headers"
     <*> v .:? "content"
-    <*> v .:? "example"
-    <*> v .:? "examples"
+    <*> v .:? "links"
     <*> (pure (xify v))
 
--- |Example summary description value externalValue x
-data Example = Example {_example_summary :: (Maybe Text), _example_description :: (Maybe Text), _example_value :: (Maybe Value), _example_externalValue :: (Maybe Text), _example_x :: (Maybe (HashMap Text Value)) } deriving (Eq)
+-- |Link operationId operationRef parameters requestBody description server x
+data Link = Link {_link_operationId :: (Maybe Text), _link_operationRef :: (Maybe Text), _link_parameters :: (Maybe (HashMap Text Value)), _link_requestBody :: (Maybe Value), _link_description :: (Maybe Text), _link_server :: (Maybe Server), _link_x :: (Maybe (HashMap Text Value)) } deriving (Eq)
 
-getExampleSummary :: Example -> Maybe Text
-getExampleSummary = _example_summary
+getLinkOperationId :: Link -> Maybe Text
+getLinkOperationId = _link_operationId
 
-getExampleDescription :: Example -> Maybe Text
-getExampleDescription = _example_description
+getLinkOperationRef :: Link -> Maybe Text
+getLinkOperationRef = _link_operationRef
 
-getExampleValue :: Example -> Maybe Value
-getExampleValue = _example_value
+getLinkParameters :: Link -> Maybe (HashMap Text Value)
+getLinkParameters = _link_parameters
 
-getExampleExternalValue :: Example -> Maybe Text
-getExampleExternalValue = _example_externalValue
+getLinkRequestBody :: Link -> Maybe Value
+getLinkRequestBody = _link_requestBody
 
-getExampleX :: Example -> Maybe (HashMap Text Value)
-getExampleX = _example_x
+getLinkDescription :: Link -> Maybe Text
+getLinkDescription = _link_description
 
-setExampleSummary :: Example -> Maybe Text -> Example
-setExampleSummary _old_ _new_ = _old_ { _example_summary = _new_ }
+getLinkServer :: Link -> Maybe Server
+getLinkServer = _link_server
 
-setExampleDescription :: Example -> Maybe Text -> Example
-setExampleDescription _old_ _new_ = _old_ { _example_description = _new_ }
+getLinkX :: Link -> Maybe (HashMap Text Value)
+getLinkX = _link_x
 
-setExampleValue :: Example -> Maybe Value -> Example
-setExampleValue _old_ _new_ = _old_ { _example_value = _new_ }
+setLinkOperationId :: Link -> Maybe Text -> Link
+setLinkOperationId _old_ _new_ = _old_ { _link_operationId = _new_ }
 
-setExampleExternalValue :: Example -> Maybe Text -> Example
-setExampleExternalValue _old_ _new_ = _old_ { _example_externalValue = _new_ }
+setLinkOperationRef :: Link -> Maybe Text -> Link
+setLinkOperationRef _old_ _new_ = _old_ { _link_operationRef = _new_ }
 
-setExampleX :: Example -> Maybe (HashMap Text Value) -> Example
-setExampleX _old_ _new_ = _old_ { _example_x = _new_ }
+setLinkParameters :: Link -> Maybe (HashMap Text Value) -> Link
+setLinkParameters _old_ _new_ = _old_ { _link_parameters = _new_ }
+
+setLinkRequestBody :: Link -> Maybe Value -> Link
+setLinkRequestBody _old_ _new_ = _old_ { _link_requestBody = _new_ }
+
+setLinkDescription :: Link -> Maybe Text -> Link
+setLinkDescription _old_ _new_ = _old_ { _link_description = _new_ }
+
+setLinkServer :: Link -> Maybe Server -> Link
+setLinkServer _old_ _new_ = _old_ { _link_server = _new_ }
+
+setLinkX :: Link -> Maybe (HashMap Text Value) -> Link
+setLinkX _old_ _new_ = _old_ { _link_x = _new_ }
 
 
-instance Show Example where
-  show (Example _summary _description _value _externalValue _x) = show (pack "Example" <> pack "(" <> intercalate ", " (P.filter (not . DT.null) [maybe "" (\x -> pack ("summary = Just " <> show x)) _summary, maybe "" (\x -> pack ("description = Just " <> show x)) _description, maybe "" (\x -> pack ("value = Just " <> show x)) _value, maybe "" (\x -> pack ("externalValue = Just " <> show x)) _externalValue, maybe "" (\x -> pack ("x = Just " <> show x)) _x]) <> pack ")")
+instance Show Link where
+  show (Link _operationId _operationRef _parameters _requestBody _description _server _x) = show (pack "Link" <> pack "(" <> intercalate ", " (P.filter (not . DT.null) [maybe "" (\x -> pack ("operationId = Just " <> show x)) _operationId, maybe "" (\x -> pack ("operationRef = Just " <> show x)) _operationRef, maybe "" (\x -> pack ("parameters = Just " <> show x)) _parameters, maybe "" (\x -> pack ("requestBody = Just " <> show x)) _requestBody, maybe "" (\x -> pack ("description = Just " <> show x)) _description, maybe "" (\x -> pack ("server = Just " <> show x)) _server, maybe "" (\x -> pack ("x = Just " <> show x)) _x]) <> pack ")")
 
-instance ToJSON Example where
-  toJSON (Example _summary _description _value _externalValue _x) =
-    object $ (maybe [] (\x -> ["summary" .= x]) _summary) ++ (maybe [] (\x -> ["description" .= x]) _description) ++ (maybe [] (\x -> ["value" .= x]) _value) ++ (maybe [] (\x -> ["externalValue" .= x]) _externalValue) ++ (maybe [] (HM.toList . (HM.map toJSON)) _x)
+instance ToJSON Link where
+  toJSON (Link _operationId _operationRef _parameters _requestBody _description _server _x) =
+    object $ (maybe [] (\x -> ["operationId" .= x]) _operationId) ++ (maybe [] (\x -> ["operationRef" .= x]) _operationRef) ++ (maybe [] (\x -> ["parameters" .= x]) _parameters) ++ (maybe [] (\x -> ["requestBody" .= x]) _requestBody) ++ (maybe [] (\x -> ["description" .= x]) _description) ++ (maybe [] (\x -> ["server" .= x]) _server) ++ (maybe [] (HM.toList . (HM.map toJSON)) _x)
 
-instance FromJSON Example where
-  parseJSON = withObject "Example" $ \v -> Example
-    <$> v .:? "summary"
+instance FromJSON Link where
+  parseJSON = withObject "Link" $ \v -> Link
+    <$> v .:? "operationId"
+    <*> v .:? "operationRef"
+    <*> v .:? "parameters"
+    <*> v .:? "requestBody"
     <*> v .:? "description"
-    <*> v .:? "value"
-    <*> v .:? "externalValue"
+    <*> v .:? "server"
+    <*> (pure (xify v))
+
+-- |Contact name url email x
+data Contact = Contact {_contact_name :: (Maybe Text), _contact_url :: (Maybe Text), _contact_email :: (Maybe Text), _contact_x :: (Maybe (HashMap Text Value)) } deriving (Eq)
+
+getContactName :: Contact -> Maybe Text
+getContactName = _contact_name
+
+getContactUrl :: Contact -> Maybe Text
+getContactUrl = _contact_url
+
+getContactEmail :: Contact -> Maybe Text
+getContactEmail = _contact_email
+
+getContactX :: Contact -> Maybe (HashMap Text Value)
+getContactX = _contact_x
+
+setContactName :: Contact -> Maybe Text -> Contact
+setContactName _old_ _new_ = _old_ { _contact_name = _new_ }
+
+setContactUrl :: Contact -> Maybe Text -> Contact
+setContactUrl _old_ _new_ = _old_ { _contact_url = _new_ }
+
+setContactEmail :: Contact -> Maybe Text -> Contact
+setContactEmail _old_ _new_ = _old_ { _contact_email = _new_ }
+
+setContactX :: Contact -> Maybe (HashMap Text Value) -> Contact
+setContactX _old_ _new_ = _old_ { _contact_x = _new_ }
+
+
+instance Show Contact where
+  show (Contact _name _url _email _x) = show (pack "Contact" <> pack "(" <> intercalate ", " (P.filter (not . DT.null) [maybe "" (\x -> pack ("name = Just " <> show x)) _name, maybe "" (\x -> pack ("url = Just " <> show x)) _url, maybe "" (\x -> pack ("email = Just " <> show x)) _email, maybe "" (\x -> pack ("x = Just " <> show x)) _x]) <> pack ")")
+
+instance ToJSON Contact where
+  toJSON (Contact _name _url _email _x) =
+    object $ (maybe [] (\x -> ["name" .= x]) _name) ++ (maybe [] (\x -> ["url" .= x]) _url) ++ (maybe [] (\x -> ["email" .= x]) _email) ++ (maybe [] (HM.toList . (HM.map toJSON)) _x)
+
+instance FromJSON Contact where
+  parseJSON = withObject "Contact" $ \v -> Contact
+    <$> v .:? "name"
+    <*> v .:? "url"
+    <*> v .:? "email"
     <*> (pure (xify v))
 
 -- |Schema title multipleOf maximum exclusiveMaximum minimum exclusiveMinimum maxLength minLength pattern maxItems minItems uniqueItems maxProperties minProperties required enum allOf oneOf anyOf items properties additionalProperties description default nullable discriminator readOnly writeOnly example externalDocs deprecated xml format type not x
@@ -1629,146 +1542,182 @@ instance FromJSON Schema where
     <*> v .:? "not"
     <*> (pure (xify v))
 
--- |RequestBody content description required x
-data RequestBody = RequestBody {_requestBody_content :: (HashMap Text MediaType), _requestBody_description :: (Maybe Text), _requestBody_required :: (Maybe Bool), _requestBody_x :: (Maybe (HashMap Text Value)) } deriving (Eq)
+-- |Operation responses tags summary description externalDocs operationId parameters requestBody callbacks deprecated security servers x
+data Operation = Operation {_operation_responses :: (HashMap Text (ReferenceOr Response)), _operation_tags :: (Maybe [Text]), _operation_summary :: (Maybe Text), _operation_description :: (Maybe Text), _operation_externalDocs :: (Maybe ExternalDocumentation), _operation_operationId :: (Maybe Text), _operation_parameters :: (Maybe [ReferenceOr Parameter]), _operation_requestBody :: (Maybe (ReferenceOr RequestBody)), _operation_callbacks :: (Maybe (HashMap Text (ReferenceOr (HashMap Text PathItem)))), _operation_deprecated :: (Maybe Bool), _operation_security :: (Maybe [HashMap Text [Text]]), _operation_servers :: (Maybe [Server]), _operation_x :: (Maybe (HashMap Text Value)) } deriving (Eq)
 
-getRequestBodyContent :: RequestBody -> HashMap Text MediaType
-getRequestBodyContent = _requestBody_content
+getOperationResponses :: Operation -> HashMap Text (ReferenceOr Response)
+getOperationResponses = _operation_responses
 
-getRequestBodyDescription :: RequestBody -> Maybe Text
-getRequestBodyDescription = _requestBody_description
+getOperationTags :: Operation -> Maybe [Text]
+getOperationTags = _operation_tags
 
-getRequestBodyRequired :: RequestBody -> Maybe Bool
-getRequestBodyRequired = _requestBody_required
+getOperationSummary :: Operation -> Maybe Text
+getOperationSummary = _operation_summary
 
-getRequestBodyX :: RequestBody -> Maybe (HashMap Text Value)
-getRequestBodyX = _requestBody_x
+getOperationDescription :: Operation -> Maybe Text
+getOperationDescription = _operation_description
 
-setRequestBodyContent :: RequestBody -> HashMap Text MediaType -> RequestBody
-setRequestBodyContent _old_ _new_ = _old_ { _requestBody_content = _new_ }
+getOperationExternalDocs :: Operation -> Maybe ExternalDocumentation
+getOperationExternalDocs = _operation_externalDocs
 
-setRequestBodyDescription :: RequestBody -> Maybe Text -> RequestBody
-setRequestBodyDescription _old_ _new_ = _old_ { _requestBody_description = _new_ }
+getOperationOperationId :: Operation -> Maybe Text
+getOperationOperationId = _operation_operationId
 
-setRequestBodyRequired :: RequestBody -> Maybe Bool -> RequestBody
-setRequestBodyRequired _old_ _new_ = _old_ { _requestBody_required = _new_ }
+getOperationParameters :: Operation -> Maybe [ReferenceOr Parameter]
+getOperationParameters = _operation_parameters
 
-setRequestBodyX :: RequestBody -> Maybe (HashMap Text Value) -> RequestBody
-setRequestBodyX _old_ _new_ = _old_ { _requestBody_x = _new_ }
+getOperationRequestBody :: Operation -> Maybe (ReferenceOr RequestBody)
+getOperationRequestBody = _operation_requestBody
+
+getOperationCallbacks :: Operation -> Maybe (HashMap Text (ReferenceOr (HashMap Text PathItem)))
+getOperationCallbacks = _operation_callbacks
+
+getOperationDeprecated :: Operation -> Maybe Bool
+getOperationDeprecated = _operation_deprecated
+
+getOperationSecurity :: Operation -> Maybe [HashMap Text [Text]]
+getOperationSecurity = _operation_security
+
+getOperationServers :: Operation -> Maybe [Server]
+getOperationServers = _operation_servers
+
+getOperationX :: Operation -> Maybe (HashMap Text Value)
+getOperationX = _operation_x
+
+setOperationResponses :: Operation -> HashMap Text (ReferenceOr Response) -> Operation
+setOperationResponses _old_ _new_ = _old_ { _operation_responses = _new_ }
+
+setOperationTags :: Operation -> Maybe [Text] -> Operation
+setOperationTags _old_ _new_ = _old_ { _operation_tags = _new_ }
+
+setOperationSummary :: Operation -> Maybe Text -> Operation
+setOperationSummary _old_ _new_ = _old_ { _operation_summary = _new_ }
+
+setOperationDescription :: Operation -> Maybe Text -> Operation
+setOperationDescription _old_ _new_ = _old_ { _operation_description = _new_ }
+
+setOperationExternalDocs :: Operation -> Maybe ExternalDocumentation -> Operation
+setOperationExternalDocs _old_ _new_ = _old_ { _operation_externalDocs = _new_ }
+
+setOperationOperationId :: Operation -> Maybe Text -> Operation
+setOperationOperationId _old_ _new_ = _old_ { _operation_operationId = _new_ }
+
+setOperationParameters :: Operation -> Maybe [ReferenceOr Parameter] -> Operation
+setOperationParameters _old_ _new_ = _old_ { _operation_parameters = _new_ }
+
+setOperationRequestBody :: Operation -> Maybe (ReferenceOr RequestBody) -> Operation
+setOperationRequestBody _old_ _new_ = _old_ { _operation_requestBody = _new_ }
+
+setOperationCallbacks :: Operation -> Maybe (HashMap Text (ReferenceOr (HashMap Text PathItem))) -> Operation
+setOperationCallbacks _old_ _new_ = _old_ { _operation_callbacks = _new_ }
+
+setOperationDeprecated :: Operation -> Maybe Bool -> Operation
+setOperationDeprecated _old_ _new_ = _old_ { _operation_deprecated = _new_ }
+
+setOperationSecurity :: Operation -> Maybe [HashMap Text [Text]] -> Operation
+setOperationSecurity _old_ _new_ = _old_ { _operation_security = _new_ }
+
+setOperationServers :: Operation -> Maybe [Server] -> Operation
+setOperationServers _old_ _new_ = _old_ { _operation_servers = _new_ }
+
+setOperationX :: Operation -> Maybe (HashMap Text Value) -> Operation
+setOperationX _old_ _new_ = _old_ { _operation_x = _new_ }
 
 
-instance Show RequestBody where
-  show (RequestBody _content _description _required _x) = show (pack "RequestBody" <> pack "(" <> intercalate ", " (P.filter (not . DT.null) [pack ("content = " <> show _content), maybe "" (\x -> pack ("description = Just " <> show x)) _description, maybe "" (\x -> pack ("required = Just " <> show x)) _required, maybe "" (\x -> pack ("x = Just " <> show x)) _x]) <> pack ")")
+instance Show Operation where
+  show (Operation _responses _tags _summary _description _externalDocs _operationId _parameters _requestBody _callbacks _deprecated _security _servers _x) = show (pack "Operation" <> pack "(" <> intercalate ", " (P.filter (not . DT.null) [pack ("responses = " <> show _responses), maybe "" (\x -> pack ("tags = Just " <> show x)) _tags, maybe "" (\x -> pack ("summary = Just " <> show x)) _summary, maybe "" (\x -> pack ("description = Just " <> show x)) _description, maybe "" (\x -> pack ("externalDocs = Just " <> show x)) _externalDocs, maybe "" (\x -> pack ("operationId = Just " <> show x)) _operationId, maybe "" (\x -> pack ("parameters = Just " <> show x)) _parameters, maybe "" (\x -> pack ("requestBody = Just " <> show x)) _requestBody, maybe "" (\x -> pack ("callbacks = Just " <> show x)) _callbacks, maybe "" (\x -> pack ("deprecated = Just " <> show x)) _deprecated, maybe "" (\x -> pack ("security = Just " <> show x)) _security, maybe "" (\x -> pack ("servers = Just " <> show x)) _servers, maybe "" (\x -> pack ("x = Just " <> show x)) _x]) <> pack ")")
 
-instance ToJSON RequestBody where
-  toJSON (RequestBody _content _description _required _x) =
-    object $ ["content" .= _content] ++ (maybe [] (\x -> ["description" .= x]) _description) ++ (maybe [] (\x -> ["required" .= x]) _required) ++ (maybe [] (HM.toList . (HM.map toJSON)) _x)
+instance ToJSON Operation where
+  toJSON (Operation _responses _tags _summary _description _externalDocs _operationId _parameters _requestBody _callbacks _deprecated _security _servers _x) =
+    object $ ["responses" .= _responses] ++ (maybe [] (\x -> ["tags" .= x]) _tags) ++ (maybe [] (\x -> ["summary" .= x]) _summary) ++ (maybe [] (\x -> ["description" .= x]) _description) ++ (maybe [] (\x -> ["externalDocs" .= x]) _externalDocs) ++ (maybe [] (\x -> ["operationId" .= x]) _operationId) ++ (maybe [] (\x -> ["parameters" .= x]) _parameters) ++ (maybe [] (\x -> ["requestBody" .= x]) _requestBody) ++ (maybe [] (\x -> ["callbacks" .= x]) _callbacks) ++ (maybe [] (\x -> ["deprecated" .= x]) _deprecated) ++ (maybe [] (\x -> ["security" .= x]) _security) ++ (maybe [] (\x -> ["servers" .= x]) _servers) ++ (maybe [] (HM.toList . (HM.map toJSON)) _x)
 
-instance FromJSON RequestBody where
-  parseJSON = withObject "RequestBody" $ \v -> RequestBody
-    <$> v .: "content"
+instance FromJSON Operation where
+  parseJSON = withObject "Operation" $ \v -> Operation
+    <$> v .: "responses"
+    <*> v .:? "tags"
+    <*> v .:? "summary"
     <*> v .:? "description"
-    <*> v .:? "required"
+    <*> v .:? "externalDocs"
+    <*> v .:? "operationId"
+    <*> v .:? "parameters"
+    <*> v .:? "requestBody"
+    <*> v .:? "callbacks"
+    <*> v .:? "deprecated"
+    <*> v .:? "security"
+    <*> v .:? "servers"
     <*> (pure (xify v))
 
--- |Response description headers content links x
-data Response = Response {_response_description :: Text, _response_headers :: (Maybe (HashMap Text (ReferenceOr Header))), _response_content :: (Maybe (HashMap Text MediaType)), _response_links :: (Maybe (HashMap Text (ReferenceOr Link))), _response_x :: (Maybe (HashMap Text Value)) } deriving (Eq)
+-- |License name url x
+data License = License {_license_name :: Text, _license_url :: (Maybe Text), _license_x :: (Maybe (HashMap Text Value)) } deriving (Eq)
 
-getResponseDescription :: Response -> Text
-getResponseDescription = _response_description
+getLicenseName :: License -> Text
+getLicenseName = _license_name
 
-getResponseHeaders :: Response -> Maybe (HashMap Text (ReferenceOr Header))
-getResponseHeaders = _response_headers
+getLicenseUrl :: License -> Maybe Text
+getLicenseUrl = _license_url
 
-getResponseContent :: Response -> Maybe (HashMap Text MediaType)
-getResponseContent = _response_content
+getLicenseX :: License -> Maybe (HashMap Text Value)
+getLicenseX = _license_x
 
-getResponseLinks :: Response -> Maybe (HashMap Text (ReferenceOr Link))
-getResponseLinks = _response_links
+setLicenseName :: License -> Text -> License
+setLicenseName _old_ _new_ = _old_ { _license_name = _new_ }
 
-getResponseX :: Response -> Maybe (HashMap Text Value)
-getResponseX = _response_x
+setLicenseUrl :: License -> Maybe Text -> License
+setLicenseUrl _old_ _new_ = _old_ { _license_url = _new_ }
 
-setResponseDescription :: Response -> Text -> Response
-setResponseDescription _old_ _new_ = _old_ { _response_description = _new_ }
-
-setResponseHeaders :: Response -> Maybe (HashMap Text (ReferenceOr Header)) -> Response
-setResponseHeaders _old_ _new_ = _old_ { _response_headers = _new_ }
-
-setResponseContent :: Response -> Maybe (HashMap Text MediaType) -> Response
-setResponseContent _old_ _new_ = _old_ { _response_content = _new_ }
-
-setResponseLinks :: Response -> Maybe (HashMap Text (ReferenceOr Link)) -> Response
-setResponseLinks _old_ _new_ = _old_ { _response_links = _new_ }
-
-setResponseX :: Response -> Maybe (HashMap Text Value) -> Response
-setResponseX _old_ _new_ = _old_ { _response_x = _new_ }
+setLicenseX :: License -> Maybe (HashMap Text Value) -> License
+setLicenseX _old_ _new_ = _old_ { _license_x = _new_ }
 
 
-instance Show Response where
-  show (Response _description _headers _content _links _x) = show (pack "Response" <> pack "(" <> intercalate ", " (P.filter (not . DT.null) [pack ("description = " <> show _description), maybe "" (\x -> pack ("headers = Just " <> show x)) _headers, maybe "" (\x -> pack ("content = Just " <> show x)) _content, maybe "" (\x -> pack ("links = Just " <> show x)) _links, maybe "" (\x -> pack ("x = Just " <> show x)) _x]) <> pack ")")
+instance Show License where
+  show (License _name _url _x) = show (pack "License" <> pack "(" <> intercalate ", " (P.filter (not . DT.null) [pack ("name = " <> show _name), maybe "" (\x -> pack ("url = Just " <> show x)) _url, maybe "" (\x -> pack ("x = Just " <> show x)) _x]) <> pack ")")
 
-instance ToJSON Response where
-  toJSON (Response _description _headers _content _links _x) =
-    object $ ["description" .= _description] ++ (maybe [] (\x -> ["headers" .= x]) _headers) ++ (maybe [] (\x -> ["content" .= x]) _content) ++ (maybe [] (\x -> ["links" .= x]) _links) ++ (maybe [] (HM.toList . (HM.map toJSON)) _x)
+instance ToJSON License where
+  toJSON (License _name _url _x) =
+    object $ ["name" .= _name] ++ (maybe [] (\x -> ["url" .= x]) _url) ++ (maybe [] (HM.toList . (HM.map toJSON)) _x)
 
-instance FromJSON Response where
-  parseJSON = withObject "Response" $ \v -> Response
-    <$> v .: "description"
-    <*> v .:? "headers"
-    <*> v .:? "content"
-    <*> v .:? "links"
+instance FromJSON License where
+  parseJSON = withObject "License" $ \v -> License
+    <$> v .: "name"
+    <*> v .:? "url"
     <*> (pure (xify v))
 
--- |Reference $ref x
-data Reference = Reference {_reference_ref :: Text, _reference_x :: (Maybe (HashMap Text Value)) } deriving (Eq)
+data SecuritySchema = APIKeySS APIKeySecurityScheme | HTTPSS HTTPSecurityScheme | OAuth2SS OAuth2SecurityScheme | OpenIdConnectSS OpenIdConnectSecurityScheme | TextSS Text | ReferenceSS Reference deriving(Show, Eq)
 
-getReferenceRef :: Reference -> Text
-getReferenceRef = _reference_ref
+instance FromJSON SecuritySchema where
+  parseJSON obj@(Object o) = do
+    tp <- o .: "type" :: Parser Text
+    case tp of
+      "apiKey" -> APIKeySS <$> parseJSON obj
+      "http" -> HTTPSS <$> parseJSON obj
+      "oauth2" -> OAuth2SS <$> parseJSON obj
+      "openIdConnect" -> OpenIdConnectSS <$> parseJSON obj
+      _ -> ReferenceSS <$> parseJSON obj
+  parseJSON st@(String s) = TextSS <$> parseJSON st
 
-getReferenceX :: Reference -> Maybe (HashMap Text Value)
-getReferenceX = _reference_x
+instance ToJSON SecuritySchema where
+  toJSON (APIKeySS s) = toJSON s
+  toJSON (HTTPSS r) = toJSON r
+  toJSON (OAuth2SS r) = toJSON r
+  toJSON (OpenIdConnectSS r) = toJSON r
+  toJSON (TextSS r) = toJSON r
+  toJSON (ReferenceSS b) = toJSON b
 
-setReferenceRef :: Reference -> Text -> Reference
-setReferenceRef _old_ _new_ = _old_ { _reference_ref = _new_ }
+eitherSecuritySchemaAPIKeySS :: SecuritySchema -> Either SecuritySchema APIKeySecurityScheme
+eitherSecuritySchemaAPIKeySS (APIKeySS r) = Right r
+eitherSecuritySchemaAPIKeySS l = Left l
 
-setReferenceX :: Reference -> Maybe (HashMap Text Value) -> Reference
-setReferenceX _old_ _new_ = _old_ { _reference_x = _new_ }
+eitherSecuritySchemaHTTPSS :: SecuritySchema -> Either SecuritySchema HTTPSecurityScheme
+eitherSecuritySchemaHTTPSS (HTTPSS r) = Right r
+eitherSecuritySchemaHTTPSS l = Left l
 
+eitherSecuritySchemaOAuth2SS :: SecuritySchema -> Either SecuritySchema OAuth2SecurityScheme
+eitherSecuritySchemaOAuth2SS (OAuth2SS r) = Right r
+eitherSecuritySchemaOAuth2SS l = Left l
 
-instance Show Reference where
-  show (Reference _ref _x) = show (pack "Reference" <> pack "(" <> intercalate ", " (P.filter (not . DT.null) [pack ("ref = " <> show _ref), maybe "" (\x -> pack ("x = Just " <> show x)) _x]) <> pack ")")
-
-instance ToJSON Reference where
-  toJSON (Reference _ref _x) =
-    object $ ["$ref" .= _ref] ++ (maybe [] (HM.toList . (HM.map toJSON)) _x)
-
-instance FromJSON Reference where
-  parseJSON = withObject "Reference" $ \v -> Reference
-    <$> v .: "$ref"
-    <*> (pure (xify v))
-
-data Items = Tuple [ReferenceOr Schema] | SingleItem Schema | SingleItemReference Reference deriving (Show, Eq)
-instance FromJSON Items where
-  parseJSON obj@(Object o) | isRef o = SingleItemReference <$> parseJSON obj | otherwise = SingleItem <$> parseJSON obj
-  parseJSON (Array a) = Tuple <$> (V.toList <$> mapM parseJSON a)
-
-instance ToJSON Items where
-  toJSON (Tuple t) = toJSON t
-  toJSON (SingleItem i) = toJSON i
-  toJSON (SingleItemReference r) = toJSON r
-
-eitherItemsTuple :: Items -> Either Items [ReferenceOr Schema]
-eitherItemsTuple (Tuple r) = Right r
-eitherItemsTuple l = Left l
-
-eitherItemsSingleItem :: Items -> Either Items Schema
-eitherItemsSingleItem (SingleItem r) = Right r
-eitherItemsSingleItem l = Left l
-
-eitherItemsSingleItemReference :: Items -> Either Items Reference
-eitherItemsSingleItemReference (SingleItemReference r) = Right r
-eitherItemsSingleItemReference l = Left l
+eitherSecuritySchemaOpenIdConnectSS :: SecuritySchema -> Either SecuritySchema OpenIdConnectSecurityScheme
+eitherSecuritySchemaOpenIdConnectSS (OpenIdConnectSS r) = Right r
+eitherSecuritySchemaOpenIdConnectSS l = Left l
 
 data Additionals = AdditionalSchema Schema | AdditionalReference Reference | AdditionalBool Bool deriving (Show, Eq)
 
@@ -1792,6 +1741,90 @@ eitherAdditionalReference l = Left l
 eitherAdditionalBool :: Additionals -> Either Additionals Bool
 eitherAdditionalBool (AdditionalBool r) = Right r
 eitherAdditionalBool l = Left l
+
+-- |OAuth2SecurityScheme flows type description x
+data OAuth2SecurityScheme = OAuth2SecurityScheme {_oAuth2SecurityScheme_flows :: OAuthFlows, _oAuth2SecurityScheme_type :: Text, _oAuth2SecurityScheme_description :: (Maybe Text), _oAuth2SecurityScheme_x :: (Maybe (HashMap Text Value)) } deriving (Eq)
+
+getOAuth2SecuritySchemeFlows :: OAuth2SecurityScheme -> OAuthFlows
+getOAuth2SecuritySchemeFlows = _oAuth2SecurityScheme_flows
+
+getOAuth2SecuritySchemeType :: OAuth2SecurityScheme -> Text
+getOAuth2SecuritySchemeType = _oAuth2SecurityScheme_type
+
+getOAuth2SecuritySchemeDescription :: OAuth2SecurityScheme -> Maybe Text
+getOAuth2SecuritySchemeDescription = _oAuth2SecurityScheme_description
+
+getOAuth2SecuritySchemeX :: OAuth2SecurityScheme -> Maybe (HashMap Text Value)
+getOAuth2SecuritySchemeX = _oAuth2SecurityScheme_x
+
+setOAuth2SecuritySchemeFlows :: OAuth2SecurityScheme -> OAuthFlows -> OAuth2SecurityScheme
+setOAuth2SecuritySchemeFlows _old_ _new_ = _old_ { _oAuth2SecurityScheme_flows = _new_ }
+
+setOAuth2SecuritySchemeType :: OAuth2SecurityScheme -> Text -> OAuth2SecurityScheme
+setOAuth2SecuritySchemeType _old_ _new_ = _old_ { _oAuth2SecurityScheme_type = _new_ }
+
+setOAuth2SecuritySchemeDescription :: OAuth2SecurityScheme -> Maybe Text -> OAuth2SecurityScheme
+setOAuth2SecuritySchemeDescription _old_ _new_ = _old_ { _oAuth2SecurityScheme_description = _new_ }
+
+setOAuth2SecuritySchemeX :: OAuth2SecurityScheme -> Maybe (HashMap Text Value) -> OAuth2SecurityScheme
+setOAuth2SecuritySchemeX _old_ _new_ = _old_ { _oAuth2SecurityScheme_x = _new_ }
+
+
+instance Show OAuth2SecurityScheme where
+  show (OAuth2SecurityScheme _flows _type _description _x) = show (pack "OAuth2SecurityScheme" <> pack "(" <> intercalate ", " (P.filter (not . DT.null) [pack ("flows = " <> show _flows), pack ("type = " <> show _type), maybe "" (\x -> pack ("description = Just " <> show x)) _description, maybe "" (\x -> pack ("x = Just " <> show x)) _x]) <> pack ")")
+
+instance ToJSON OAuth2SecurityScheme where
+  toJSON (OAuth2SecurityScheme _flows _type _description _x) =
+    object $ ["flows" .= _flows] ++ ["type" .= _type] ++ (maybe [] (\x -> ["description" .= x]) _description) ++ (maybe [] (HM.toList . (HM.map toJSON)) _x)
+
+instance FromJSON OAuth2SecurityScheme where
+  parseJSON = withObject "OAuth2SecurityScheme" $ \v -> OAuth2SecurityScheme
+    <$> v .: "flows"
+    <*> v .: "type"
+    <*> v .:? "description"
+    <*> (pure (xify v))
+
+-- |OpenIdConnectSecurityScheme type openIdConnectUrl description x
+data OpenIdConnectSecurityScheme = OpenIdConnectSecurityScheme {_openIdConnectSecurityScheme_type :: Text, _openIdConnectSecurityScheme_openIdConnectUrl :: Text, _openIdConnectSecurityScheme_description :: (Maybe Text), _openIdConnectSecurityScheme_x :: (Maybe (HashMap Text Value)) } deriving (Eq)
+
+getOpenIdConnectSecuritySchemeType :: OpenIdConnectSecurityScheme -> Text
+getOpenIdConnectSecuritySchemeType = _openIdConnectSecurityScheme_type
+
+getOpenIdConnectSecuritySchemeOpenIdConnectUrl :: OpenIdConnectSecurityScheme -> Text
+getOpenIdConnectSecuritySchemeOpenIdConnectUrl = _openIdConnectSecurityScheme_openIdConnectUrl
+
+getOpenIdConnectSecuritySchemeDescription :: OpenIdConnectSecurityScheme -> Maybe Text
+getOpenIdConnectSecuritySchemeDescription = _openIdConnectSecurityScheme_description
+
+getOpenIdConnectSecuritySchemeX :: OpenIdConnectSecurityScheme -> Maybe (HashMap Text Value)
+getOpenIdConnectSecuritySchemeX = _openIdConnectSecurityScheme_x
+
+setOpenIdConnectSecuritySchemeType :: OpenIdConnectSecurityScheme -> Text -> OpenIdConnectSecurityScheme
+setOpenIdConnectSecuritySchemeType _old_ _new_ = _old_ { _openIdConnectSecurityScheme_type = _new_ }
+
+setOpenIdConnectSecuritySchemeOpenIdConnectUrl :: OpenIdConnectSecurityScheme -> Text -> OpenIdConnectSecurityScheme
+setOpenIdConnectSecuritySchemeOpenIdConnectUrl _old_ _new_ = _old_ { _openIdConnectSecurityScheme_openIdConnectUrl = _new_ }
+
+setOpenIdConnectSecuritySchemeDescription :: OpenIdConnectSecurityScheme -> Maybe Text -> OpenIdConnectSecurityScheme
+setOpenIdConnectSecuritySchemeDescription _old_ _new_ = _old_ { _openIdConnectSecurityScheme_description = _new_ }
+
+setOpenIdConnectSecuritySchemeX :: OpenIdConnectSecurityScheme -> Maybe (HashMap Text Value) -> OpenIdConnectSecurityScheme
+setOpenIdConnectSecuritySchemeX _old_ _new_ = _old_ { _openIdConnectSecurityScheme_x = _new_ }
+
+
+instance Show OpenIdConnectSecurityScheme where
+  show (OpenIdConnectSecurityScheme _type _openIdConnectUrl _description _x) = show (pack "OpenIdConnectSecurityScheme" <> pack "(" <> intercalate ", " (P.filter (not . DT.null) [pack ("type = " <> show _type), pack ("openIdConnectUrl = " <> show _openIdConnectUrl), maybe "" (\x -> pack ("description = Just " <> show x)) _description, maybe "" (\x -> pack ("x = Just " <> show x)) _x]) <> pack ")")
+
+instance ToJSON OpenIdConnectSecurityScheme where
+  toJSON (OpenIdConnectSecurityScheme _type _openIdConnectUrl _description _x) =
+    object $ ["type" .= _type] ++ ["openIdConnectUrl" .= _openIdConnectUrl] ++ (maybe [] (\x -> ["description" .= x]) _description) ++ (maybe [] (HM.toList . (HM.map toJSON)) _x)
+
+instance FromJSON OpenIdConnectSecurityScheme where
+  parseJSON = withObject "OpenIdConnectSecurityScheme" $ \v -> OpenIdConnectSecurityScheme
+    <$> v .: "type"
+    <*> v .: "openIdConnectUrl"
+    <*> v .:? "description"
+    <*> (pure (xify v))
 
 -- |XML name namespace prefix attribute wrapped x
 data XML = XML {_xML_name :: (Maybe Text), _xML_namespace :: (Maybe Text), _xML_prefix :: (Maybe Text), _xML_attribute :: (Maybe Bool), _xML_wrapped :: (Maybe Bool), _xML_x :: (Maybe (HashMap Text Value)) } deriving (Eq)
@@ -1847,6 +1880,55 @@ instance FromJSON XML where
     <*> v .:? "prefix"
     <*> v .:? "attribute"
     <*> v .:? "wrapped"
+    <*> (pure (xify v))
+
+-- |APIKeySecurityScheme name type in description x
+data APIKeySecurityScheme = APIKeySecurityScheme {_aPIKeySecurityScheme_name :: Text, _aPIKeySecurityScheme_type :: Text, _aPIKeySecurityScheme_in :: Text, _aPIKeySecurityScheme_description :: (Maybe Text), _aPIKeySecurityScheme_x :: (Maybe (HashMap Text Value)) } deriving (Eq)
+
+getAPIKeySecuritySchemeName :: APIKeySecurityScheme -> Text
+getAPIKeySecuritySchemeName = _aPIKeySecurityScheme_name
+
+getAPIKeySecuritySchemeType :: APIKeySecurityScheme -> Text
+getAPIKeySecuritySchemeType = _aPIKeySecurityScheme_type
+
+getAPIKeySecuritySchemeIn :: APIKeySecurityScheme -> Text
+getAPIKeySecuritySchemeIn = _aPIKeySecurityScheme_in
+
+getAPIKeySecuritySchemeDescription :: APIKeySecurityScheme -> Maybe Text
+getAPIKeySecuritySchemeDescription = _aPIKeySecurityScheme_description
+
+getAPIKeySecuritySchemeX :: APIKeySecurityScheme -> Maybe (HashMap Text Value)
+getAPIKeySecuritySchemeX = _aPIKeySecurityScheme_x
+
+setAPIKeySecuritySchemeName :: APIKeySecurityScheme -> Text -> APIKeySecurityScheme
+setAPIKeySecuritySchemeName _old_ _new_ = _old_ { _aPIKeySecurityScheme_name = _new_ }
+
+setAPIKeySecuritySchemeType :: APIKeySecurityScheme -> Text -> APIKeySecurityScheme
+setAPIKeySecuritySchemeType _old_ _new_ = _old_ { _aPIKeySecurityScheme_type = _new_ }
+
+setAPIKeySecuritySchemeIn :: APIKeySecurityScheme -> Text -> APIKeySecurityScheme
+setAPIKeySecuritySchemeIn _old_ _new_ = _old_ { _aPIKeySecurityScheme_in = _new_ }
+
+setAPIKeySecuritySchemeDescription :: APIKeySecurityScheme -> Maybe Text -> APIKeySecurityScheme
+setAPIKeySecuritySchemeDescription _old_ _new_ = _old_ { _aPIKeySecurityScheme_description = _new_ }
+
+setAPIKeySecuritySchemeX :: APIKeySecurityScheme -> Maybe (HashMap Text Value) -> APIKeySecurityScheme
+setAPIKeySecuritySchemeX _old_ _new_ = _old_ { _aPIKeySecurityScheme_x = _new_ }
+
+
+instance Show APIKeySecurityScheme where
+  show (APIKeySecurityScheme _name _type _in _description _x) = show (pack "APIKeySecurityScheme" <> pack "(" <> intercalate ", " (P.filter (not . DT.null) [pack ("name = " <> show _name), pack ("type = " <> show _type), pack ("in = " <> show _in), maybe "" (\x -> pack ("description = Just " <> show x)) _description, maybe "" (\x -> pack ("x = Just " <> show x)) _x]) <> pack ")")
+
+instance ToJSON APIKeySecurityScheme where
+  toJSON (APIKeySecurityScheme _name _type _in _description _x) =
+    object $ ["name" .= _name] ++ ["type" .= _type] ++ ["in" .= _in] ++ (maybe [] (\x -> ["description" .= x]) _description) ++ (maybe [] (HM.toList . (HM.map toJSON)) _x)
+
+instance FromJSON APIKeySecurityScheme where
+  parseJSON = withObject "APIKeySecurityScheme" $ \v -> APIKeySecurityScheme
+    <$> v .: "name"
+    <*> v .: "type"
+    <*> v .: "in"
+    <*> v .:? "description"
     <*> (pure (xify v))
 
 -- |Discriminator propertyName mapping x
@@ -1933,88 +2015,54 @@ instance FromJSON MediaType where
     <*> v .:? "encoding"
     <*> (pure (xify v))
 
--- |OpenIdConnectSecurityScheme type openIdConnectUrl description x
-data OpenIdConnectSecurityScheme = OpenIdConnectSecurityScheme {_openIdConnectSecurityScheme_type :: Text, _openIdConnectSecurityScheme_openIdConnectUrl :: Text, _openIdConnectSecurityScheme_description :: (Maybe Text), _openIdConnectSecurityScheme_x :: (Maybe (HashMap Text Value)) } deriving (Eq)
+data Items = Tuple [ReferenceOr Schema] | SingleItem Schema | SingleItemReference Reference deriving (Show, Eq)
+instance FromJSON Items where
+  parseJSON obj@(Object o) | isRef o = SingleItemReference <$> parseJSON obj | otherwise = SingleItem <$> parseJSON obj
+  parseJSON (Array a) = Tuple <$> (V.toList <$> mapM parseJSON a)
 
-getOpenIdConnectSecuritySchemeType :: OpenIdConnectSecurityScheme -> Text
-getOpenIdConnectSecuritySchemeType = _openIdConnectSecurityScheme_type
+instance ToJSON Items where
+  toJSON (Tuple t) = toJSON t
+  toJSON (SingleItem i) = toJSON i
+  toJSON (SingleItemReference r) = toJSON r
 
-getOpenIdConnectSecuritySchemeOpenIdConnectUrl :: OpenIdConnectSecurityScheme -> Text
-getOpenIdConnectSecuritySchemeOpenIdConnectUrl = _openIdConnectSecurityScheme_openIdConnectUrl
+eitherItemsTuple :: Items -> Either Items [ReferenceOr Schema]
+eitherItemsTuple (Tuple r) = Right r
+eitherItemsTuple l = Left l
 
-getOpenIdConnectSecuritySchemeDescription :: OpenIdConnectSecurityScheme -> Maybe Text
-getOpenIdConnectSecuritySchemeDescription = _openIdConnectSecurityScheme_description
+eitherItemsSingleItem :: Items -> Either Items Schema
+eitherItemsSingleItem (SingleItem r) = Right r
+eitherItemsSingleItem l = Left l
 
-getOpenIdConnectSecuritySchemeX :: OpenIdConnectSecurityScheme -> Maybe (HashMap Text Value)
-getOpenIdConnectSecuritySchemeX = _openIdConnectSecurityScheme_x
+eitherItemsSingleItemReference :: Items -> Either Items Reference
+eitherItemsSingleItemReference (SingleItemReference r) = Right r
+eitherItemsSingleItemReference l = Left l
 
-setOpenIdConnectSecuritySchemeType :: OpenIdConnectSecurityScheme -> Text -> OpenIdConnectSecurityScheme
-setOpenIdConnectSecuritySchemeType _old_ _new_ = _old_ { _openIdConnectSecurityScheme_type = _new_ }
+-- |Reference $ref x
+data Reference = Reference {_reference_ref :: Text, _reference_x :: (Maybe (HashMap Text Value)) } deriving (Eq)
 
-setOpenIdConnectSecuritySchemeOpenIdConnectUrl :: OpenIdConnectSecurityScheme -> Text -> OpenIdConnectSecurityScheme
-setOpenIdConnectSecuritySchemeOpenIdConnectUrl _old_ _new_ = _old_ { _openIdConnectSecurityScheme_openIdConnectUrl = _new_ }
+getReferenceRef :: Reference -> Text
+getReferenceRef = _reference_ref
 
-setOpenIdConnectSecuritySchemeDescription :: OpenIdConnectSecurityScheme -> Maybe Text -> OpenIdConnectSecurityScheme
-setOpenIdConnectSecuritySchemeDescription _old_ _new_ = _old_ { _openIdConnectSecurityScheme_description = _new_ }
+getReferenceX :: Reference -> Maybe (HashMap Text Value)
+getReferenceX = _reference_x
 
-setOpenIdConnectSecuritySchemeX :: OpenIdConnectSecurityScheme -> Maybe (HashMap Text Value) -> OpenIdConnectSecurityScheme
-setOpenIdConnectSecuritySchemeX _old_ _new_ = _old_ { _openIdConnectSecurityScheme_x = _new_ }
+setReferenceRef :: Reference -> Text -> Reference
+setReferenceRef _old_ _new_ = _old_ { _reference_ref = _new_ }
 
-
-instance Show OpenIdConnectSecurityScheme where
-  show (OpenIdConnectSecurityScheme _type _openIdConnectUrl _description _x) = show (pack "OpenIdConnectSecurityScheme" <> pack "(" <> intercalate ", " (P.filter (not . DT.null) [pack ("type = " <> show _type), pack ("openIdConnectUrl = " <> show _openIdConnectUrl), maybe "" (\x -> pack ("description = Just " <> show x)) _description, maybe "" (\x -> pack ("x = Just " <> show x)) _x]) <> pack ")")
-
-instance ToJSON OpenIdConnectSecurityScheme where
-  toJSON (OpenIdConnectSecurityScheme _type _openIdConnectUrl _description _x) =
-    object $ ["type" .= _type] ++ ["openIdConnectUrl" .= _openIdConnectUrl] ++ (maybe [] (\x -> ["description" .= x]) _description) ++ (maybe [] (HM.toList . (HM.map toJSON)) _x)
-
-instance FromJSON OpenIdConnectSecurityScheme where
-  parseJSON = withObject "OpenIdConnectSecurityScheme" $ \v -> OpenIdConnectSecurityScheme
-    <$> v .: "type"
-    <*> v .: "openIdConnectUrl"
-    <*> v .:? "description"
-    <*> (pure (xify v))
-
--- |OAuth2SecurityScheme flows type description x
-data OAuth2SecurityScheme = OAuth2SecurityScheme {_oAuth2SecurityScheme_flows :: OAuthFlows, _oAuth2SecurityScheme_type :: Text, _oAuth2SecurityScheme_description :: (Maybe Text), _oAuth2SecurityScheme_x :: (Maybe (HashMap Text Value)) } deriving (Eq)
-
-getOAuth2SecuritySchemeFlows :: OAuth2SecurityScheme -> OAuthFlows
-getOAuth2SecuritySchemeFlows = _oAuth2SecurityScheme_flows
-
-getOAuth2SecuritySchemeType :: OAuth2SecurityScheme -> Text
-getOAuth2SecuritySchemeType = _oAuth2SecurityScheme_type
-
-getOAuth2SecuritySchemeDescription :: OAuth2SecurityScheme -> Maybe Text
-getOAuth2SecuritySchemeDescription = _oAuth2SecurityScheme_description
-
-getOAuth2SecuritySchemeX :: OAuth2SecurityScheme -> Maybe (HashMap Text Value)
-getOAuth2SecuritySchemeX = _oAuth2SecurityScheme_x
-
-setOAuth2SecuritySchemeFlows :: OAuth2SecurityScheme -> OAuthFlows -> OAuth2SecurityScheme
-setOAuth2SecuritySchemeFlows _old_ _new_ = _old_ { _oAuth2SecurityScheme_flows = _new_ }
-
-setOAuth2SecuritySchemeType :: OAuth2SecurityScheme -> Text -> OAuth2SecurityScheme
-setOAuth2SecuritySchemeType _old_ _new_ = _old_ { _oAuth2SecurityScheme_type = _new_ }
-
-setOAuth2SecuritySchemeDescription :: OAuth2SecurityScheme -> Maybe Text -> OAuth2SecurityScheme
-setOAuth2SecuritySchemeDescription _old_ _new_ = _old_ { _oAuth2SecurityScheme_description = _new_ }
-
-setOAuth2SecuritySchemeX :: OAuth2SecurityScheme -> Maybe (HashMap Text Value) -> OAuth2SecurityScheme
-setOAuth2SecuritySchemeX _old_ _new_ = _old_ { _oAuth2SecurityScheme_x = _new_ }
+setReferenceX :: Reference -> Maybe (HashMap Text Value) -> Reference
+setReferenceX _old_ _new_ = _old_ { _reference_x = _new_ }
 
 
-instance Show OAuth2SecurityScheme where
-  show (OAuth2SecurityScheme _flows _type _description _x) = show (pack "OAuth2SecurityScheme" <> pack "(" <> intercalate ", " (P.filter (not . DT.null) [pack ("flows = " <> show _flows), pack ("type = " <> show _type), maybe "" (\x -> pack ("description = Just " <> show x)) _description, maybe "" (\x -> pack ("x = Just " <> show x)) _x]) <> pack ")")
+instance Show Reference where
+  show (Reference _ref _x) = show (pack "Reference" <> pack "(" <> intercalate ", " (P.filter (not . DT.null) [pack ("ref = " <> show _ref), maybe "" (\x -> pack ("x = Just " <> show x)) _x]) <> pack ")")
 
-instance ToJSON OAuth2SecurityScheme where
-  toJSON (OAuth2SecurityScheme _flows _type _description _x) =
-    object $ ["flows" .= _flows] ++ ["type" .= _type] ++ (maybe [] (\x -> ["description" .= x]) _description) ++ (maybe [] (HM.toList . (HM.map toJSON)) _x)
+instance ToJSON Reference where
+  toJSON (Reference _ref _x) =
+    object $ ["$ref" .= _ref] ++ (maybe [] (HM.toList . (HM.map toJSON)) _x)
 
-instance FromJSON OAuth2SecurityScheme where
-  parseJSON = withObject "OAuth2SecurityScheme" $ \v -> OAuth2SecurityScheme
-    <$> v .: "flows"
-    <*> v .: "type"
-    <*> v .:? "description"
+instance FromJSON Reference where
+  parseJSON = withObject "Reference" $ \v -> Reference
+    <$> v .: "$ref"
     <*> (pure (xify v))
 
 -- |HTTPSecurityScheme type scheme bearerFormat description x
@@ -2063,55 +2111,6 @@ instance FromJSON HTTPSecurityScheme where
     <$> v .: "type"
     <*> v .: "scheme"
     <*> v .:? "bearerFormat"
-    <*> v .:? "description"
-    <*> (pure (xify v))
-
--- |APIKeySecurityScheme name type in description x
-data APIKeySecurityScheme = APIKeySecurityScheme {_aPIKeySecurityScheme_name :: Text, _aPIKeySecurityScheme_type :: Text, _aPIKeySecurityScheme_in :: Text, _aPIKeySecurityScheme_description :: (Maybe Text), _aPIKeySecurityScheme_x :: (Maybe (HashMap Text Value)) } deriving (Eq)
-
-getAPIKeySecuritySchemeName :: APIKeySecurityScheme -> Text
-getAPIKeySecuritySchemeName = _aPIKeySecurityScheme_name
-
-getAPIKeySecuritySchemeType :: APIKeySecurityScheme -> Text
-getAPIKeySecuritySchemeType = _aPIKeySecurityScheme_type
-
-getAPIKeySecuritySchemeIn :: APIKeySecurityScheme -> Text
-getAPIKeySecuritySchemeIn = _aPIKeySecurityScheme_in
-
-getAPIKeySecuritySchemeDescription :: APIKeySecurityScheme -> Maybe Text
-getAPIKeySecuritySchemeDescription = _aPIKeySecurityScheme_description
-
-getAPIKeySecuritySchemeX :: APIKeySecurityScheme -> Maybe (HashMap Text Value)
-getAPIKeySecuritySchemeX = _aPIKeySecurityScheme_x
-
-setAPIKeySecuritySchemeName :: APIKeySecurityScheme -> Text -> APIKeySecurityScheme
-setAPIKeySecuritySchemeName _old_ _new_ = _old_ { _aPIKeySecurityScheme_name = _new_ }
-
-setAPIKeySecuritySchemeType :: APIKeySecurityScheme -> Text -> APIKeySecurityScheme
-setAPIKeySecuritySchemeType _old_ _new_ = _old_ { _aPIKeySecurityScheme_type = _new_ }
-
-setAPIKeySecuritySchemeIn :: APIKeySecurityScheme -> Text -> APIKeySecurityScheme
-setAPIKeySecuritySchemeIn _old_ _new_ = _old_ { _aPIKeySecurityScheme_in = _new_ }
-
-setAPIKeySecuritySchemeDescription :: APIKeySecurityScheme -> Maybe Text -> APIKeySecurityScheme
-setAPIKeySecuritySchemeDescription _old_ _new_ = _old_ { _aPIKeySecurityScheme_description = _new_ }
-
-setAPIKeySecuritySchemeX :: APIKeySecurityScheme -> Maybe (HashMap Text Value) -> APIKeySecurityScheme
-setAPIKeySecuritySchemeX _old_ _new_ = _old_ { _aPIKeySecurityScheme_x = _new_ }
-
-
-instance Show APIKeySecurityScheme where
-  show (APIKeySecurityScheme _name _type _in _description _x) = show (pack "APIKeySecurityScheme" <> pack "(" <> intercalate ", " (P.filter (not . DT.null) [pack ("name = " <> show _name), pack ("type = " <> show _type), pack ("in = " <> show _in), maybe "" (\x -> pack ("description = Just " <> show x)) _description, maybe "" (\x -> pack ("x = Just " <> show x)) _x]) <> pack ")")
-
-instance ToJSON APIKeySecurityScheme where
-  toJSON (APIKeySecurityScheme _name _type _in _description _x) =
-    object $ ["name" .= _name] ++ ["type" .= _type] ++ ["in" .= _in] ++ (maybe [] (\x -> ["description" .= x]) _description) ++ (maybe [] (HM.toList . (HM.map toJSON)) _x)
-
-instance FromJSON APIKeySecurityScheme where
-  parseJSON = withObject "APIKeySecurityScheme" $ \v -> APIKeySecurityScheme
-    <$> v .: "name"
-    <*> v .: "type"
-    <*> v .: "in"
     <*> v .:? "description"
     <*> (pure (xify v))
 
@@ -2220,6 +2219,132 @@ instance FromJSON Encoding where
     <*> v .:? "allowReserved"
     <*> (pure (xify v))
 
+-- |ImplicitOAuthFlow authorizationUrl scopes refreshUrl x
+data ImplicitOAuthFlow = ImplicitOAuthFlow {_implicitOAuthFlow_authorizationUrl :: Text, _implicitOAuthFlow_scopes :: (HashMap Text Text), _implicitOAuthFlow_refreshUrl :: (Maybe Text), _implicitOAuthFlow_x :: (Maybe (HashMap Text Value)) } deriving (Eq)
+
+getImplicitOAuthFlowAuthorizationUrl :: ImplicitOAuthFlow -> Text
+getImplicitOAuthFlowAuthorizationUrl = _implicitOAuthFlow_authorizationUrl
+
+getImplicitOAuthFlowScopes :: ImplicitOAuthFlow -> HashMap Text Text
+getImplicitOAuthFlowScopes = _implicitOAuthFlow_scopes
+
+getImplicitOAuthFlowRefreshUrl :: ImplicitOAuthFlow -> Maybe Text
+getImplicitOAuthFlowRefreshUrl = _implicitOAuthFlow_refreshUrl
+
+getImplicitOAuthFlowX :: ImplicitOAuthFlow -> Maybe (HashMap Text Value)
+getImplicitOAuthFlowX = _implicitOAuthFlow_x
+
+setImplicitOAuthFlowAuthorizationUrl :: ImplicitOAuthFlow -> Text -> ImplicitOAuthFlow
+setImplicitOAuthFlowAuthorizationUrl _old_ _new_ = _old_ { _implicitOAuthFlow_authorizationUrl = _new_ }
+
+setImplicitOAuthFlowScopes :: ImplicitOAuthFlow -> HashMap Text Text -> ImplicitOAuthFlow
+setImplicitOAuthFlowScopes _old_ _new_ = _old_ { _implicitOAuthFlow_scopes = _new_ }
+
+setImplicitOAuthFlowRefreshUrl :: ImplicitOAuthFlow -> Maybe Text -> ImplicitOAuthFlow
+setImplicitOAuthFlowRefreshUrl _old_ _new_ = _old_ { _implicitOAuthFlow_refreshUrl = _new_ }
+
+setImplicitOAuthFlowX :: ImplicitOAuthFlow -> Maybe (HashMap Text Value) -> ImplicitOAuthFlow
+setImplicitOAuthFlowX _old_ _new_ = _old_ { _implicitOAuthFlow_x = _new_ }
+
+
+instance Show ImplicitOAuthFlow where
+  show (ImplicitOAuthFlow _authorizationUrl _scopes _refreshUrl _x) = show (pack "ImplicitOAuthFlow" <> pack "(" <> intercalate ", " (P.filter (not . DT.null) [pack ("authorizationUrl = " <> show _authorizationUrl), pack ("scopes = " <> show _scopes), maybe "" (\x -> pack ("refreshUrl = Just " <> show x)) _refreshUrl, maybe "" (\x -> pack ("x = Just " <> show x)) _x]) <> pack ")")
+
+instance ToJSON ImplicitOAuthFlow where
+  toJSON (ImplicitOAuthFlow _authorizationUrl _scopes _refreshUrl _x) =
+    object $ ["authorizationUrl" .= _authorizationUrl] ++ ["scopes" .= _scopes] ++ (maybe [] (\x -> ["refreshUrl" .= x]) _refreshUrl) ++ (maybe [] (HM.toList . (HM.map toJSON)) _x)
+
+instance FromJSON ImplicitOAuthFlow where
+  parseJSON = withObject "ImplicitOAuthFlow" $ \v -> ImplicitOAuthFlow
+    <$> v .: "authorizationUrl"
+    <*> v .: "scopes"
+    <*> v .:? "refreshUrl"
+    <*> (pure (xify v))
+
+-- |PasswordOAuthFlow tokenUrl refreshUrl scopes x
+data PasswordOAuthFlow = PasswordOAuthFlow {_passwordOAuthFlow_tokenUrl :: Text, _passwordOAuthFlow_refreshUrl :: (Maybe Text), _passwordOAuthFlow_scopes :: (Maybe (HashMap Text Text)), _passwordOAuthFlow_x :: (Maybe (HashMap Text Value)) } deriving (Eq)
+
+getPasswordOAuthFlowTokenUrl :: PasswordOAuthFlow -> Text
+getPasswordOAuthFlowTokenUrl = _passwordOAuthFlow_tokenUrl
+
+getPasswordOAuthFlowRefreshUrl :: PasswordOAuthFlow -> Maybe Text
+getPasswordOAuthFlowRefreshUrl = _passwordOAuthFlow_refreshUrl
+
+getPasswordOAuthFlowScopes :: PasswordOAuthFlow -> Maybe (HashMap Text Text)
+getPasswordOAuthFlowScopes = _passwordOAuthFlow_scopes
+
+getPasswordOAuthFlowX :: PasswordOAuthFlow -> Maybe (HashMap Text Value)
+getPasswordOAuthFlowX = _passwordOAuthFlow_x
+
+setPasswordOAuthFlowTokenUrl :: PasswordOAuthFlow -> Text -> PasswordOAuthFlow
+setPasswordOAuthFlowTokenUrl _old_ _new_ = _old_ { _passwordOAuthFlow_tokenUrl = _new_ }
+
+setPasswordOAuthFlowRefreshUrl :: PasswordOAuthFlow -> Maybe Text -> PasswordOAuthFlow
+setPasswordOAuthFlowRefreshUrl _old_ _new_ = _old_ { _passwordOAuthFlow_refreshUrl = _new_ }
+
+setPasswordOAuthFlowScopes :: PasswordOAuthFlow -> Maybe (HashMap Text Text) -> PasswordOAuthFlow
+setPasswordOAuthFlowScopes _old_ _new_ = _old_ { _passwordOAuthFlow_scopes = _new_ }
+
+setPasswordOAuthFlowX :: PasswordOAuthFlow -> Maybe (HashMap Text Value) -> PasswordOAuthFlow
+setPasswordOAuthFlowX _old_ _new_ = _old_ { _passwordOAuthFlow_x = _new_ }
+
+
+instance Show PasswordOAuthFlow where
+  show (PasswordOAuthFlow _tokenUrl _refreshUrl _scopes _x) = show (pack "PasswordOAuthFlow" <> pack "(" <> intercalate ", " (P.filter (not . DT.null) [pack ("tokenUrl = " <> show _tokenUrl), maybe "" (\x -> pack ("refreshUrl = Just " <> show x)) _refreshUrl, maybe "" (\x -> pack ("scopes = Just " <> show x)) _scopes, maybe "" (\x -> pack ("x = Just " <> show x)) _x]) <> pack ")")
+
+instance ToJSON PasswordOAuthFlow where
+  toJSON (PasswordOAuthFlow _tokenUrl _refreshUrl _scopes _x) =
+    object $ ["tokenUrl" .= _tokenUrl] ++ (maybe [] (\x -> ["refreshUrl" .= x]) _refreshUrl) ++ (maybe [] (\x -> ["scopes" .= x]) _scopes) ++ (maybe [] (HM.toList . (HM.map toJSON)) _x)
+
+instance FromJSON PasswordOAuthFlow where
+  parseJSON = withObject "PasswordOAuthFlow" $ \v -> PasswordOAuthFlow
+    <$> v .: "tokenUrl"
+    <*> v .:? "refreshUrl"
+    <*> v .:? "scopes"
+    <*> (pure (xify v))
+
+-- |ClientCredentialsFlow tokenUrl refreshUrl scopes x
+data ClientCredentialsFlow = ClientCredentialsFlow {_clientCredentialsFlow_tokenUrl :: Text, _clientCredentialsFlow_refreshUrl :: (Maybe Text), _clientCredentialsFlow_scopes :: (Maybe (HashMap Text Text)), _clientCredentialsFlow_x :: (Maybe (HashMap Text Value)) } deriving (Eq)
+
+getClientCredentialsFlowTokenUrl :: ClientCredentialsFlow -> Text
+getClientCredentialsFlowTokenUrl = _clientCredentialsFlow_tokenUrl
+
+getClientCredentialsFlowRefreshUrl :: ClientCredentialsFlow -> Maybe Text
+getClientCredentialsFlowRefreshUrl = _clientCredentialsFlow_refreshUrl
+
+getClientCredentialsFlowScopes :: ClientCredentialsFlow -> Maybe (HashMap Text Text)
+getClientCredentialsFlowScopes = _clientCredentialsFlow_scopes
+
+getClientCredentialsFlowX :: ClientCredentialsFlow -> Maybe (HashMap Text Value)
+getClientCredentialsFlowX = _clientCredentialsFlow_x
+
+setClientCredentialsFlowTokenUrl :: ClientCredentialsFlow -> Text -> ClientCredentialsFlow
+setClientCredentialsFlowTokenUrl _old_ _new_ = _old_ { _clientCredentialsFlow_tokenUrl = _new_ }
+
+setClientCredentialsFlowRefreshUrl :: ClientCredentialsFlow -> Maybe Text -> ClientCredentialsFlow
+setClientCredentialsFlowRefreshUrl _old_ _new_ = _old_ { _clientCredentialsFlow_refreshUrl = _new_ }
+
+setClientCredentialsFlowScopes :: ClientCredentialsFlow -> Maybe (HashMap Text Text) -> ClientCredentialsFlow
+setClientCredentialsFlowScopes _old_ _new_ = _old_ { _clientCredentialsFlow_scopes = _new_ }
+
+setClientCredentialsFlowX :: ClientCredentialsFlow -> Maybe (HashMap Text Value) -> ClientCredentialsFlow
+setClientCredentialsFlowX _old_ _new_ = _old_ { _clientCredentialsFlow_x = _new_ }
+
+
+instance Show ClientCredentialsFlow where
+  show (ClientCredentialsFlow _tokenUrl _refreshUrl _scopes _x) = show (pack "ClientCredentialsFlow" <> pack "(" <> intercalate ", " (P.filter (not . DT.null) [pack ("tokenUrl = " <> show _tokenUrl), maybe "" (\x -> pack ("refreshUrl = Just " <> show x)) _refreshUrl, maybe "" (\x -> pack ("scopes = Just " <> show x)) _scopes, maybe "" (\x -> pack ("x = Just " <> show x)) _x]) <> pack ")")
+
+instance ToJSON ClientCredentialsFlow where
+  toJSON (ClientCredentialsFlow _tokenUrl _refreshUrl _scopes _x) =
+    object $ ["tokenUrl" .= _tokenUrl] ++ (maybe [] (\x -> ["refreshUrl" .= x]) _refreshUrl) ++ (maybe [] (\x -> ["scopes" .= x]) _scopes) ++ (maybe [] (HM.toList . (HM.map toJSON)) _x)
+
+instance FromJSON ClientCredentialsFlow where
+  parseJSON = withObject "ClientCredentialsFlow" $ \v -> ClientCredentialsFlow
+    <$> v .: "tokenUrl"
+    <*> v .:? "refreshUrl"
+    <*> v .:? "scopes"
+    <*> (pure (xify v))
+
 -- |AuthorizationCodeOAuthFlow tokenUrl authorizationUrl refreshUrl scopes x
 data AuthorizationCodeOAuthFlow = AuthorizationCodeOAuthFlow {_authorizationCodeOAuthFlow_tokenUrl :: Text, _authorizationCodeOAuthFlow_authorizationUrl :: Text, _authorizationCodeOAuthFlow_refreshUrl :: (Maybe Text), _authorizationCodeOAuthFlow_scopes :: (Maybe (HashMap Text Text)), _authorizationCodeOAuthFlow_x :: (Maybe (HashMap Text Value)) } deriving (Eq)
 
@@ -2265,132 +2390,6 @@ instance FromJSON AuthorizationCodeOAuthFlow where
   parseJSON = withObject "AuthorizationCodeOAuthFlow" $ \v -> AuthorizationCodeOAuthFlow
     <$> v .: "tokenUrl"
     <*> v .: "authorizationUrl"
-    <*> v .:? "refreshUrl"
-    <*> v .:? "scopes"
-    <*> (pure (xify v))
-
--- |PasswordOAuthFlow tokenUrl refreshUrl scopes x
-data PasswordOAuthFlow = PasswordOAuthFlow {_passwordOAuthFlow_tokenUrl :: Text, _passwordOAuthFlow_refreshUrl :: (Maybe Text), _passwordOAuthFlow_scopes :: (Maybe (HashMap Text Text)), _passwordOAuthFlow_x :: (Maybe (HashMap Text Value)) } deriving (Eq)
-
-getPasswordOAuthFlowTokenUrl :: PasswordOAuthFlow -> Text
-getPasswordOAuthFlowTokenUrl = _passwordOAuthFlow_tokenUrl
-
-getPasswordOAuthFlowRefreshUrl :: PasswordOAuthFlow -> Maybe Text
-getPasswordOAuthFlowRefreshUrl = _passwordOAuthFlow_refreshUrl
-
-getPasswordOAuthFlowScopes :: PasswordOAuthFlow -> Maybe (HashMap Text Text)
-getPasswordOAuthFlowScopes = _passwordOAuthFlow_scopes
-
-getPasswordOAuthFlowX :: PasswordOAuthFlow -> Maybe (HashMap Text Value)
-getPasswordOAuthFlowX = _passwordOAuthFlow_x
-
-setPasswordOAuthFlowTokenUrl :: PasswordOAuthFlow -> Text -> PasswordOAuthFlow
-setPasswordOAuthFlowTokenUrl _old_ _new_ = _old_ { _passwordOAuthFlow_tokenUrl = _new_ }
-
-setPasswordOAuthFlowRefreshUrl :: PasswordOAuthFlow -> Maybe Text -> PasswordOAuthFlow
-setPasswordOAuthFlowRefreshUrl _old_ _new_ = _old_ { _passwordOAuthFlow_refreshUrl = _new_ }
-
-setPasswordOAuthFlowScopes :: PasswordOAuthFlow -> Maybe (HashMap Text Text) -> PasswordOAuthFlow
-setPasswordOAuthFlowScopes _old_ _new_ = _old_ { _passwordOAuthFlow_scopes = _new_ }
-
-setPasswordOAuthFlowX :: PasswordOAuthFlow -> Maybe (HashMap Text Value) -> PasswordOAuthFlow
-setPasswordOAuthFlowX _old_ _new_ = _old_ { _passwordOAuthFlow_x = _new_ }
-
-
-instance Show PasswordOAuthFlow where
-  show (PasswordOAuthFlow _tokenUrl _refreshUrl _scopes _x) = show (pack "PasswordOAuthFlow" <> pack "(" <> intercalate ", " (P.filter (not . DT.null) [pack ("tokenUrl = " <> show _tokenUrl), maybe "" (\x -> pack ("refreshUrl = Just " <> show x)) _refreshUrl, maybe "" (\x -> pack ("scopes = Just " <> show x)) _scopes, maybe "" (\x -> pack ("x = Just " <> show x)) _x]) <> pack ")")
-
-instance ToJSON PasswordOAuthFlow where
-  toJSON (PasswordOAuthFlow _tokenUrl _refreshUrl _scopes _x) =
-    object $ ["tokenUrl" .= _tokenUrl] ++ (maybe [] (\x -> ["refreshUrl" .= x]) _refreshUrl) ++ (maybe [] (\x -> ["scopes" .= x]) _scopes) ++ (maybe [] (HM.toList . (HM.map toJSON)) _x)
-
-instance FromJSON PasswordOAuthFlow where
-  parseJSON = withObject "PasswordOAuthFlow" $ \v -> PasswordOAuthFlow
-    <$> v .: "tokenUrl"
-    <*> v .:? "refreshUrl"
-    <*> v .:? "scopes"
-    <*> (pure (xify v))
-
--- |ImplicitOAuthFlow authorizationUrl scopes refreshUrl x
-data ImplicitOAuthFlow = ImplicitOAuthFlow {_implicitOAuthFlow_authorizationUrl :: Text, _implicitOAuthFlow_scopes :: (HashMap Text Text), _implicitOAuthFlow_refreshUrl :: (Maybe Text), _implicitOAuthFlow_x :: (Maybe (HashMap Text Value)) } deriving (Eq)
-
-getImplicitOAuthFlowAuthorizationUrl :: ImplicitOAuthFlow -> Text
-getImplicitOAuthFlowAuthorizationUrl = _implicitOAuthFlow_authorizationUrl
-
-getImplicitOAuthFlowScopes :: ImplicitOAuthFlow -> HashMap Text Text
-getImplicitOAuthFlowScopes = _implicitOAuthFlow_scopes
-
-getImplicitOAuthFlowRefreshUrl :: ImplicitOAuthFlow -> Maybe Text
-getImplicitOAuthFlowRefreshUrl = _implicitOAuthFlow_refreshUrl
-
-getImplicitOAuthFlowX :: ImplicitOAuthFlow -> Maybe (HashMap Text Value)
-getImplicitOAuthFlowX = _implicitOAuthFlow_x
-
-setImplicitOAuthFlowAuthorizationUrl :: ImplicitOAuthFlow -> Text -> ImplicitOAuthFlow
-setImplicitOAuthFlowAuthorizationUrl _old_ _new_ = _old_ { _implicitOAuthFlow_authorizationUrl = _new_ }
-
-setImplicitOAuthFlowScopes :: ImplicitOAuthFlow -> HashMap Text Text -> ImplicitOAuthFlow
-setImplicitOAuthFlowScopes _old_ _new_ = _old_ { _implicitOAuthFlow_scopes = _new_ }
-
-setImplicitOAuthFlowRefreshUrl :: ImplicitOAuthFlow -> Maybe Text -> ImplicitOAuthFlow
-setImplicitOAuthFlowRefreshUrl _old_ _new_ = _old_ { _implicitOAuthFlow_refreshUrl = _new_ }
-
-setImplicitOAuthFlowX :: ImplicitOAuthFlow -> Maybe (HashMap Text Value) -> ImplicitOAuthFlow
-setImplicitOAuthFlowX _old_ _new_ = _old_ { _implicitOAuthFlow_x = _new_ }
-
-
-instance Show ImplicitOAuthFlow where
-  show (ImplicitOAuthFlow _authorizationUrl _scopes _refreshUrl _x) = show (pack "ImplicitOAuthFlow" <> pack "(" <> intercalate ", " (P.filter (not . DT.null) [pack ("authorizationUrl = " <> show _authorizationUrl), pack ("scopes = " <> show _scopes), maybe "" (\x -> pack ("refreshUrl = Just " <> show x)) _refreshUrl, maybe "" (\x -> pack ("x = Just " <> show x)) _x]) <> pack ")")
-
-instance ToJSON ImplicitOAuthFlow where
-  toJSON (ImplicitOAuthFlow _authorizationUrl _scopes _refreshUrl _x) =
-    object $ ["authorizationUrl" .= _authorizationUrl] ++ ["scopes" .= _scopes] ++ (maybe [] (\x -> ["refreshUrl" .= x]) _refreshUrl) ++ (maybe [] (HM.toList . (HM.map toJSON)) _x)
-
-instance FromJSON ImplicitOAuthFlow where
-  parseJSON = withObject "ImplicitOAuthFlow" $ \v -> ImplicitOAuthFlow
-    <$> v .: "authorizationUrl"
-    <*> v .: "scopes"
-    <*> v .:? "refreshUrl"
-    <*> (pure (xify v))
-
--- |ClientCredentialsFlow tokenUrl refreshUrl scopes x
-data ClientCredentialsFlow = ClientCredentialsFlow {_clientCredentialsFlow_tokenUrl :: Text, _clientCredentialsFlow_refreshUrl :: (Maybe Text), _clientCredentialsFlow_scopes :: (Maybe (HashMap Text Text)), _clientCredentialsFlow_x :: (Maybe (HashMap Text Value)) } deriving (Eq)
-
-getClientCredentialsFlowTokenUrl :: ClientCredentialsFlow -> Text
-getClientCredentialsFlowTokenUrl = _clientCredentialsFlow_tokenUrl
-
-getClientCredentialsFlowRefreshUrl :: ClientCredentialsFlow -> Maybe Text
-getClientCredentialsFlowRefreshUrl = _clientCredentialsFlow_refreshUrl
-
-getClientCredentialsFlowScopes :: ClientCredentialsFlow -> Maybe (HashMap Text Text)
-getClientCredentialsFlowScopes = _clientCredentialsFlow_scopes
-
-getClientCredentialsFlowX :: ClientCredentialsFlow -> Maybe (HashMap Text Value)
-getClientCredentialsFlowX = _clientCredentialsFlow_x
-
-setClientCredentialsFlowTokenUrl :: ClientCredentialsFlow -> Text -> ClientCredentialsFlow
-setClientCredentialsFlowTokenUrl _old_ _new_ = _old_ { _clientCredentialsFlow_tokenUrl = _new_ }
-
-setClientCredentialsFlowRefreshUrl :: ClientCredentialsFlow -> Maybe Text -> ClientCredentialsFlow
-setClientCredentialsFlowRefreshUrl _old_ _new_ = _old_ { _clientCredentialsFlow_refreshUrl = _new_ }
-
-setClientCredentialsFlowScopes :: ClientCredentialsFlow -> Maybe (HashMap Text Text) -> ClientCredentialsFlow
-setClientCredentialsFlowScopes _old_ _new_ = _old_ { _clientCredentialsFlow_scopes = _new_ }
-
-setClientCredentialsFlowX :: ClientCredentialsFlow -> Maybe (HashMap Text Value) -> ClientCredentialsFlow
-setClientCredentialsFlowX _old_ _new_ = _old_ { _clientCredentialsFlow_x = _new_ }
-
-
-instance Show ClientCredentialsFlow where
-  show (ClientCredentialsFlow _tokenUrl _refreshUrl _scopes _x) = show (pack "ClientCredentialsFlow" <> pack "(" <> intercalate ", " (P.filter (not . DT.null) [pack ("tokenUrl = " <> show _tokenUrl), maybe "" (\x -> pack ("refreshUrl = Just " <> show x)) _refreshUrl, maybe "" (\x -> pack ("scopes = Just " <> show x)) _scopes, maybe "" (\x -> pack ("x = Just " <> show x)) _x]) <> pack ")")
-
-instance ToJSON ClientCredentialsFlow where
-  toJSON (ClientCredentialsFlow _tokenUrl _refreshUrl _scopes _x) =
-    object $ ["tokenUrl" .= _tokenUrl] ++ (maybe [] (\x -> ["refreshUrl" .= x]) _refreshUrl) ++ (maybe [] (\x -> ["scopes" .= x]) _scopes) ++ (maybe [] (HM.toList . (HM.map toJSON)) _x)
-
-instance FromJSON ClientCredentialsFlow where
-  parseJSON = withObject "ClientCredentialsFlow" $ \v -> ClientCredentialsFlow
-    <$> v .: "tokenUrl"
     <*> v .:? "refreshUrl"
     <*> v .:? "scopes"
     <*> (pure (xify v))
