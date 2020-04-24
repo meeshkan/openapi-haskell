@@ -1,2 +1,5 @@
 .stack-work/
 *~
+build
+dist
+dist-newstyle
