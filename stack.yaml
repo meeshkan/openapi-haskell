@@ -41,10 +41,12 @@ packages:
 #
 # extra-deps: []
 extra-deps:
-- unordered-containers-0.2.10.0
 - aeson-1.4.7.1
 - hspec-2.7.1
+- optics-core-0.3
+- optics-extra-0.3
 - text-1.2.4.0
+- unordered-containers-0.2.10.0
 - vector-0.12.1.2
 - yaml-0.11.3.0
 

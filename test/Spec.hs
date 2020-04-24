@@ -6,10 +6,10 @@ import Data.Yaml(decodeFileEither)
 import Control.Monad.IO.Class
 import Data.HashMap.Strict
 import Test.Hspec
+import Optics.Core
 import Optics.Optic
 import Optics.AffineFold
 import Data.Aeson(decode, encode, eitherDecode)
-import Optics
 import Optics.At
 import Data.Maybe.Optics
 import Data.HashMap.Strict as HM
