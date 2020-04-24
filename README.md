@@ -1,6 +1,6 @@
 # openapi-haskell
 
-Contains types for OpenAPI 3.0.0. The types follow the following opinonated conventions and deviations from the standards:
+Haskell types for OpenAPI 3.0.0. The types follow the following opinonated conventions and deviations from the standards:
 
 - For each OpenAPI object represented as `data`, provides the following:
   - a docstring showing how the constructor works
