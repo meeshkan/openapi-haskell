@@ -9,11 +9,13 @@ cabal-version: 1.12
 name:           openapi-typed
 version:        0.0.0.0
 description:    Please see the README on GitHub at <https://github.com/meeshkan/openapi-haskell#readme>
+synopsis:       Types for OpenAPI
+category:       OpenAPI
 homepage:       https://github.com/meeshkan/openapi-haskell#readme
 bug-reports:    https://github.com/meeshkan/openapi-haskell/issues
-author:         Author name here
-maintainer:     example@example.com
-copyright:      2020 Author name here
+author:         Mike Solomon
+maintainer:     mike@meeshkan.com
+copyright:      2020 Meeshkan Oy
 license:        BSD3
 license-file:   LICENSE
 build-type:     Simple
@@ -36,7 +38,6 @@ library
       base >=4.7 && <5
     , unordered-containers
     , aeson
-    , optics
     , text
     , vector
   default-language: Haskell2010

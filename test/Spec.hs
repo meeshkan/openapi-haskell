@@ -18,26 +18,28 @@ import Data.OpenAPI.V3_0_0
 readOpenAPI :: String -> IO OpenAPIObject
 readOpenAPI t = either (error . show) id <$> (decodeFileEither t)
 
-testLensSlack = lensOpenAPIObjectPaths
+prismRealDeal = prism RealDeal eitherRealDeal
+
+testLensSlack = lens getOpenAPIObjectPaths setOpenAPIObjectPaths
               % (at "/users.setPhoto")
               % _Just
-              % lensPathItemPost
+              % lens getPathItemPost setPathItemPost
               % _Just
-              % lensOperationRequestBody
+              % lens getOperationRequestBody setOperationRequestBody
               % _Just
               % prismRealDeal
-              % lensRequestBodyContent
+              % lens getRequestBodyContent setRequestBodyContent
               % (at "application/x-www-form-urlencoded")
               % _Just
-              % lensMediaTypeSchema
+              % lens getMediaTypeSchema setMediaTypeSchema
               % _Just
               % prismRealDeal
-              % lensSchemaProperties
+              % lens getSchemaProperties setSchemaProperties
               % _Just
               % (at "image")
               % _Just
               % prismRealDeal
-              % lensSchemaDescription
+              % lens getSchemaDescription setSchemaDescription
               % _Just
 
 main :: IO ()
