@@ -18,7 +18,7 @@ import Data.OpenAPI.V3_0_0
 readOpenAPI :: String -> IO OpenAPIObject
 readOpenAPI t = either (error . show) id <$> (decodeFileEither t)
 
-prismRealDeal = prism RealDeal eitherRealDeal
+prismRealDeal = prism RealDeal eitherReferenceOrRealDeal
 
 testLensSlack = lens getOpenAPIObjectPaths setOpenAPIObjectPaths
               % (at "/users.setPhoto")
