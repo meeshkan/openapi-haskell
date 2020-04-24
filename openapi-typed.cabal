@@ -7,7 +7,7 @@ cabal-version: 1.12
 -- hash: f05668a61f8b785b937190927dde77a12e39e983a588faac916d29ec707b5ba6
 
 name:           openapi-typed
-version:        0.0.0.0
+version:        0.0.0.1
 description:    Please see the README on GitHub at <https://github.com/meeshkan/openapi-haskell#readme>
 synopsis:       Types for OpenAPI
 category:       OpenAPI

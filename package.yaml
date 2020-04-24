@@ -1,5 +1,5 @@
 name:                openapi-typed
-version:             0.0.0.0
+version:             0.0.0.1
 github:              "meeshkan/openapi-haskell"
 license:             BSD3
 author:              "Mike Solomon"
