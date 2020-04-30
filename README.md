@@ -1,6 +1,16 @@
 # openapi-typed
 
-Haskell types for OpenAPI 3.0.0. The types follow the following opinonated conventions and deviations from the standards:
+Haskell types for OpenAPI 3.0.0. The Hackage package is in `openapi-typed`. 
+
+https://hackage.haskell.org/package/openapi-typed 
+
+## Installation
+
+https://www.schoolofhaskell.com/user/simonmichael/how-to-cabal-install 
+
+## Usage
+
+The types follow the following opinonated conventions and deviations from the standards:
 
 - For each OpenAPI object represented as `data`, provides the following:
   - a docstring showing how the constructor works
@@ -15,4 +25,20 @@ Haskell types for OpenAPI 3.0.0. The types follow the following opinonated conve
 - Adds the possibility to use `x-` extensions on almost all objects, as this happens a lot in the wild.
 - Changes the `items` type in shema to accept a tuple in addition to a schema and a reference.
 
-The Hackage package is in `openapi-typed`. The tests show how to use this library to parse the [Slack](https://slack.com) and [Stripe](https://stripe.com) OpenAPI specs.
+## Development
+
+1. Clone this repository: `git clone `
+
+## Running tests 
+
+The tests show how to use this library to parse the [Slack](https://slack.com) and [Stripe](https://stripe.com) OpenAPI specs.
+
+To execute the tests, run:
+
+```bash
+stack test
+```
+
+## Contributing
+
+## Tell us what you think
