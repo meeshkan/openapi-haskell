@@ -1,4 +1,5 @@
-{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE OverloadedStrings   #-}
+{-# LANGUAGE ScopedTypeVariables #-}
 module Data.OpenAPI.V3_0_0 (getAPIKeySecuritySchemeDescription, setAPIKeySecuritySchemeDescription,
  getSchemaExample, setSchemaExample,
  getSchemaMaxLength, setSchemaMaxLength,
@@ -273,7 +274,7 @@ module Data.OpenAPI.V3_0_0 (getAPIKeySecuritySchemeDescription, setAPIKeySecurit
 
 import Prelude hiding(lookup, take)
 import qualified Prelude as P(filter)
-import Data.Vector as V(toList)
+import Data.Vector as V(toList, fromList)
 import Data.Aeson hiding(Encoding)
 import Data.Aeson.Types hiding(Encoding)
 import Data.Text
@@ -391,7 +392,7 @@ instance ToJSON OpenAPIObject where
 
 instance FromJSON OpenAPIObject where
   parseJSON = withObject "OpenAPIObject" $ \v -> OpenAPIObject
-    <$> v .: "openapi"
+    <$> v .:? "openapi" .!= "2.0"
     <*> v .: "info"
     <*> v .: "paths"
     <*> v .:? "externalDocs"
@@ -1277,7 +1278,7 @@ instance FromJSON Contact where
     <*> (pure (xify v))
 
 -- |Schema title multipleOf maximum exclusiveMaximum minimum exclusiveMinimum maxLength minLength pattern maxItems minItems uniqueItems maxProperties minProperties required enum allOf oneOf anyOf items properties additionalProperties description default nullable discriminator readOnly writeOnly example externalDocs deprecated xml format type not x
-data Schema = Schema {_schema_title :: (Maybe Text), _schema_multipleOf :: (Maybe Double), _schema_maximum :: (Maybe Double), _schema_exclusiveMaximum :: (Maybe BoolInt), _schema_minimum :: (Maybe Double), _schema_exclusiveMinimum :: (Maybe BoolInt), _schema_maxLength :: (Maybe Int), _schema_minLength :: (Maybe Int), _schema_pattern :: (Maybe Text), _schema_maxItems :: (Maybe Int), _schema_minItems :: (Maybe Int), _schema_uniqueItems :: (Maybe Bool), _schema_maxProperties :: (Maybe Int), _schema_minProperties :: (Maybe Int), _schema_required :: (Maybe [Text]), _schema_enum :: (Maybe [Value]), _schema_allOf :: (Maybe [ReferenceOr Schema]), _schema_oneOf :: (Maybe [ReferenceOr Schema]), _schema_anyOf :: (Maybe [ReferenceOr Schema]), _schema_items :: (Maybe Items), _schema_properties :: (Maybe (HashMap Text (ReferenceOr Schema))), _schema_additionalProperties :: (Maybe Additionals), _schema_description :: (Maybe Text), _schema_default :: (Maybe Value), _schema_nullable :: (Maybe Bool), _schema_discriminator :: (Maybe Discriminator), _schema_readOnly :: (Maybe Bool), _schema_writeOnly :: (Maybe Bool), _schema_example :: (Maybe Value), _schema_externalDocs :: (Maybe ExternalDocumentation), _schema_deprecated :: (Maybe Bool), _schema_xml :: (Maybe XML), _schema_format :: (Maybe Text), _schema_type :: (Maybe Text), _schema_not :: (Maybe (ReferenceOr Schema)), _schema_x :: (Maybe (HashMap Text Value)) } deriving (Eq)
+data Schema = Schema {_schema_title :: (Maybe Text), _schema_multipleOf :: (Maybe Double), _schema_maximum :: (Maybe Double), _schema_exclusiveMaximum :: (Maybe BoolInt), _schema_minimum :: (Maybe Double), _schema_exclusiveMinimum :: (Maybe BoolInt), _schema_maxLength :: (Maybe Int), _schema_minLength :: (Maybe Int), _schema_pattern :: (Maybe Text), _schema_maxItems :: (Maybe Int), _schema_minItems :: (Maybe Int), _schema_uniqueItems :: (Maybe Bool), _schema_maxProperties :: (Maybe Int), _schema_minProperties :: (Maybe Int), _schema_required :: (Maybe [Text]), _schema_enum :: (Maybe [Value]), _schema_allOf :: (Maybe [ReferenceOr Schema]), _schema_oneOf :: (Maybe [ReferenceOr Schema]), _schema_anyOf :: (Maybe [ReferenceOr Schema]), _schema_items :: (Maybe Items), _schema_properties :: (Maybe (HashMap Text (ReferenceOr Schema))), _schema_additionalProperties :: (Maybe Additionals), _schema_description :: (Maybe Text), _schema_default :: (Maybe Value), _schema_nullable :: (Maybe Bool), _schema_discriminator :: (Maybe Discriminator), _schema_readOnly :: (Maybe Bool), _schema_writeOnly :: (Maybe Bool), _schema_example :: (Maybe Value), _schema_externalDocs :: (Maybe ExternalDocumentation), _schema_deprecated :: (Maybe Bool), _schema_xml :: (Maybe XML), _schema_format :: (Maybe Text), _schema_type :: [Text], _schema_not :: (Maybe (ReferenceOr Schema)), _schema_x :: (Maybe (HashMap Text Value)) } deriving (Eq)
 
 getSchemaTitle :: Schema -> Maybe Text
 getSchemaTitle = _schema_title
@@ -1378,7 +1379,7 @@ getSchemaXml = _schema_xml
 getSchemaFormat :: Schema -> Maybe Text
 getSchemaFormat = _schema_format
 
-getSchemaType :: Schema -> Maybe Text
+getSchemaType :: Schema -> [Text]
 getSchemaType = _schema_type
 
 getSchemaNot :: Schema -> Maybe (ReferenceOr Schema)
@@ -1487,7 +1488,8 @@ setSchemaFormat :: Schema -> Maybe Text -> Schema
 setSchemaFormat _old_ _new_ = _old_ { _schema_format = _new_ }
 
 setSchemaType :: Schema -> Maybe Text -> Schema
-setSchemaType _old_ _new_ = _old_ { _schema_type = _new_ }
+setSchemaType _old_ Nothing  = _old_ { _schema_type = []  }
+setSchemaType _old_ (Just v) = _old_ { _schema_type = [v] }
 
 setSchemaNot :: Schema -> Maybe (ReferenceOr Schema) -> Schema
 setSchemaNot _old_ _new_ = _old_ { _schema_not = _new_ }
@@ -1497,11 +1499,21 @@ setSchemaX _old_ _new_ = _old_ { _schema_x = _new_ }
 
 
 instance Show Schema where
-  show (Schema _title _multipleOf _maximum _exclusiveMaximum _minimum _exclusiveMinimum _maxLength _minLength _pattern _maxItems _minItems _uniqueItems _maxProperties _minProperties _required _enum _allOf _oneOf _anyOf _items _properties _additionalProperties _description _default _nullable _discriminator _readOnly _writeOnly _example _externalDocs _deprecated _xml _format _type _not _x) = show (pack "Schema" <> pack "(" <> intercalate ", " (P.filter (not . DT.null) [maybe "" (\x -> pack ("title = Just " <> show x)) _title, maybe "" (\x -> pack ("multipleOf = Just " <> show x)) _multipleOf, maybe "" (\x -> pack ("maximum = Just " <> show x)) _maximum, maybe "" (\x -> pack ("exclusiveMaximum = Just " <> show x)) _exclusiveMaximum, maybe "" (\x -> pack ("minimum = Just " <> show x)) _minimum, maybe "" (\x -> pack ("exclusiveMinimum = Just " <> show x)) _exclusiveMinimum, maybe "" (\x -> pack ("maxLength = Just " <> show x)) _maxLength, maybe "" (\x -> pack ("minLength = Just " <> show x)) _minLength, maybe "" (\x -> pack ("pattern = Just " <> show x)) _pattern, maybe "" (\x -> pack ("maxItems = Just " <> show x)) _maxItems, maybe "" (\x -> pack ("minItems = Just " <> show x)) _minItems, maybe "" (\x -> pack ("uniqueItems = Just " <> show x)) _uniqueItems, maybe "" (\x -> pack ("maxProperties = Just " <> show x)) _maxProperties, maybe "" (\x -> pack ("minProperties = Just " <> show x)) _minProperties, maybe "" (\x -> pack ("required = Just " <> show x)) _required, maybe "" (\x -> pack ("enum = Just " <> show x)) _enum, maybe "" (\x -> pack ("allOf = Just " <> show x)) _allOf, maybe "" (\x -> pack ("oneOf = Just " <> show x)) _oneOf, maybe "" (\x -> pack ("anyOf = Just " <> show x)) _anyOf, maybe "" (\x -> pack ("items = Just " <> show x)) _items, maybe "" (\x -> pack ("properties = Just " <> show x)) _properties, maybe "" (\x -> pack ("additionalProperties = Just " <> show x)) _additionalProperties, maybe "" (\x -> pack ("description = Just " <> show x)) _description, maybe "" (\x -> pack ("default = Just " <> show x)) _default, maybe "" (\x -> pack ("nullable = Just " <> show x)) _nullable, maybe "" (\x -> pack ("discriminator = Just " <> show x)) _discriminator, maybe "" (\x -> pack ("readOnly = Just " <> show x)) _readOnly, maybe "" (\x -> pack ("writeOnly = Just " <> show x)) _writeOnly, maybe "" (\x -> pack ("example = Just " <> show x)) _example, maybe "" (\x -> pack ("externalDocs = Just " <> show x)) _externalDocs, maybe "" (\x -> pack ("deprecated = Just " <> show x)) _deprecated, maybe "" (\x -> pack ("xml = Just " <> show x)) _xml, maybe "" (\x -> pack ("format = Just " <> show x)) _format, maybe "" (\x -> pack ("type = Just " <> show x)) _type, maybe "" (\x -> pack ("not = Just " <> show x)) _not, maybe "" (\x -> pack ("x = Just " <> show x)) _x]) <> pack ")")
+  show (Schema _title _multipleOf _maximum _exclusiveMaximum _minimum _exclusiveMinimum _maxLength _minLength _pattern _maxItems _minItems _uniqueItems _maxProperties _minProperties _required _enum _allOf _oneOf _anyOf _items _properties _additionalProperties _description _default _nullable _discriminator _readOnly _writeOnly _example _externalDocs _deprecated _xml _format _type _not _x) = show (pack "Schema" <> pack "(" <> intercalate ", " (P.filter (not . DT.null) [maybe "" (\x -> pack ("title = Just " <> show x)) _title, maybe "" (\x -> pack ("multipleOf = Just " <> show x)) _multipleOf, maybe "" (\x -> pack ("maximum = Just " <> show x)) _maximum, maybe "" (\x -> pack ("exclusiveMaximum = Just " <> show x)) _exclusiveMaximum, maybe "" (\x -> pack ("minimum = Just " <> show x)) _minimum, maybe "" (\x -> pack ("exclusiveMinimum = Just " <> show x)) _exclusiveMinimum, maybe "" (\x -> pack ("maxLength = Just " <> show x)) _maxLength, maybe "" (\x -> pack ("minLength = Just " <> show x)) _minLength, maybe "" (\x -> pack ("pattern = Just " <> show x)) _pattern, maybe "" (\x -> pack ("maxItems = Just " <> show x)) _maxItems, maybe "" (\x -> pack ("minItems = Just " <> show x)) _minItems, maybe "" (\x -> pack ("uniqueItems = Just " <> show x)) _uniqueItems, maybe "" (\x -> pack ("maxProperties = Just " <> show x)) _maxProperties, maybe "" (\x -> pack ("minProperties = Just " <> show x)) _minProperties, maybe "" (\x -> pack ("required = Just " <> show x)) _required, maybe "" (\x -> pack ("enum = Just " <> show x)) _enum, maybe "" (\x -> pack ("allOf = Just " <> show x)) _allOf, maybe "" (\x -> pack ("oneOf = Just " <> show x)) _oneOf, maybe "" (\x -> pack ("anyOf = Just " <> show x)) _anyOf, maybe "" (\x -> pack ("items = Just " <> show x)) _items, maybe "" (\x -> pack ("properties = Just " <> show x)) _properties, maybe "" (\x -> pack ("additionalProperties = Just " <> show x)) _additionalProperties, maybe "" (\x -> pack ("description = Just " <> show x)) _description, maybe "" (\x -> pack ("default = Just " <> show x)) _default, maybe "" (\x -> pack ("nullable = Just " <> show x)) _nullable, maybe "" (\x -> pack ("discriminator = Just " <> show x)) _discriminator, maybe "" (\x -> pack ("readOnly = Just " <> show x)) _readOnly, maybe "" (\x -> pack ("writeOnly = Just " <> show x)) _writeOnly, maybe "" (\x -> pack ("example = Just " <> show x)) _example, maybe "" (\x -> pack ("externalDocs = Just " <> show x)) _externalDocs, maybe "" (\x -> pack ("deprecated = Just " <> show x)) _deprecated, maybe "" (\x -> pack ("xml = Just " <> show x)) _xml, maybe "" (\x -> pack ("format = Just " <> show x)) _format, ifNonEmpty "" (\x -> pack ("type = Just " <> show x)) _type, maybe "" (\x -> pack ("not = Just " <> show x)) _not, maybe "" (\x -> pack ("x = Just " <> show x)) _x]) <> pack ")")
+
+ifNonEmpty fallback f [] = fallback
+ifNonEmpty fallback f xs = f xs
 
 instance ToJSON Schema where
   toJSON (Schema _title _multipleOf _maximum _exclusiveMaximum _minimum _exclusiveMinimum _maxLength _minLength _pattern _maxItems _minItems _uniqueItems _maxProperties _minProperties _required _enum _allOf _oneOf _anyOf _items _properties _additionalProperties _description _default _nullable _discriminator _readOnly _writeOnly _example _externalDocs _deprecated _xml _format _type _not _x) =
-    object $ (maybe [] (\x -> ["title" .= x]) _title) ++ (maybe [] (\x -> ["multipleOf" .= x]) _multipleOf) ++ (maybe [] (\x -> ["maximum" .= x]) _maximum) ++ (maybe [] (\x -> ["exclusiveMaximum" .= x]) _exclusiveMaximum) ++ (maybe [] (\x -> ["minimum" .= x]) _minimum) ++ (maybe [] (\x -> ["exclusiveMinimum" .= x]) _exclusiveMinimum) ++ (maybe [] (\x -> ["maxLength" .= x]) _maxLength) ++ (maybe [] (\x -> ["minLength" .= x]) _minLength) ++ (maybe [] (\x -> ["pattern" .= x]) _pattern) ++ (maybe [] (\x -> ["maxItems" .= x]) _maxItems) ++ (maybe [] (\x -> ["minItems" .= x]) _minItems) ++ (maybe [] (\x -> ["uniqueItems" .= x]) _uniqueItems) ++ (maybe [] (\x -> ["maxProperties" .= x]) _maxProperties) ++ (maybe [] (\x -> ["minProperties" .= x]) _minProperties) ++ (maybe [] (\x -> ["required" .= x]) _required) ++ (maybe [] (\x -> ["enum" .= x]) _enum) ++ (maybe [] (\x -> ["allOf" .= x]) _allOf) ++ (maybe [] (\x -> ["oneOf" .= x]) _oneOf) ++ (maybe [] (\x -> ["anyOf" .= x]) _anyOf) ++ (maybe [] (\x -> ["items" .= x]) _items) ++ (maybe [] (\x -> ["properties" .= x]) _properties) ++ (maybe [] (\x -> ["additionalProperties" .= x]) _additionalProperties) ++ (maybe [] (\x -> ["description" .= x]) _description) ++ (maybe [] (\x -> ["default" .= x]) _default) ++ (maybe [] (\x -> ["nullable" .= x]) _nullable) ++ (maybe [] (\x -> ["discriminator" .= x]) _discriminator) ++ (maybe [] (\x -> ["readOnly" .= x]) _readOnly) ++ (maybe [] (\x -> ["writeOnly" .= x]) _writeOnly) ++ (maybe [] (\x -> ["example" .= x]) _example) ++ (maybe [] (\x -> ["externalDocs" .= x]) _externalDocs) ++ (maybe [] (\x -> ["deprecated" .= x]) _deprecated) ++ (maybe [] (\x -> ["xml" .= x]) _xml) ++ (maybe [] (\x -> ["format" .= x]) _format) ++ (maybe [] (\x -> ["type" .= x]) _type) ++ (maybe [] (\x -> ["not" .= x]) _not) ++ (maybe [] (HM.toList . (HM.map toJSON)) _x)
+    object $ (maybe [] (\x -> ["title" .= x]) _title) ++ (maybe [] (\x -> ["multipleOf" .= x]) _multipleOf) ++ (maybe [] (\x -> ["maximum" .= x]) _maximum) ++ (maybe [] (\x -> ["exclusiveMaximum" .= x]) _exclusiveMaximum) ++ (maybe [] (\x -> ["minimum" .= x]) _minimum) ++ (maybe [] (\x -> ["exclusiveMinimum" .= x]) _exclusiveMinimum) ++ (maybe [] (\x -> ["maxLength" .= x]) _maxLength) ++ (maybe [] (\x -> ["minLength" .= x]) _minLength) ++ (maybe [] (\x -> ["pattern" .= x]) _pattern) ++ (maybe [] (\x -> ["maxItems" .= x]) _maxItems) ++ (maybe [] (\x -> ["minItems" .= x]) _minItems) ++ (maybe [] (\x -> ["uniqueItems" .= x]) _uniqueItems) ++ (maybe [] (\x -> ["maxProperties" .= x]) _maxProperties) ++ (maybe [] (\x -> ["minProperties" .= x]) _minProperties) ++ (maybe [] (\x -> ["required" .= x]) _required) ++ (maybe [] (\x -> ["enum" .= x]) _enum) ++ (maybe [] (\x -> ["allOf" .= x]) _allOf) ++ (maybe [] (\x -> ["oneOf" .= x]) _oneOf) ++ (maybe [] (\x -> ["anyOf" .= x]) _anyOf) ++ (maybe [] (\x -> ["items" .= x]) _items) ++ (maybe [] (\x -> ["properties" .= x]) _properties) ++ (maybe [] (\x -> ["additionalProperties" .= x]) _additionalProperties) ++ (maybe [] (\x -> ["description" .= x]) _description) ++ (maybe [] (\x -> ["default" .= x]) _default) ++ (maybe [] (\x -> ["nullable" .= x]) _nullable) ++ (maybe [] (\x -> ["discriminator" .= x]) _discriminator) ++ (maybe [] (\x -> ["readOnly" .= x]) _readOnly) ++ (maybe [] (\x -> ["writeOnly" .= x]) _writeOnly) ++ (maybe [] (\x -> ["example" .= x]) _example) ++ (maybe [] (\x -> ["externalDocs" .= x]) _externalDocs) ++ (maybe [] (\x -> ["deprecated" .= x]) _deprecated) ++ (maybe [] (\x -> ["xml" .= x]) _xml) ++ (maybe [] (\x -> ["format" .= x]) _format) ++ (convType _type) ++ (maybe [] (\x -> ["not" .= x]) _not) ++ (maybe [] (HM.toList . (HM.map toJSON)) _x)
+
+convType []  = []
+convType [t] = ["type" .= String t]
+convType tys = ["type" .= obj]
+  where
+    obj     = object ["oneOf" .= Array (V.fromList (Prelude.map conv tys))]
+    conv ty = object ["type" .= String ty]
 
 instance FromJSON Schema where
   parseJSON = withObject "Schema" $ \v -> Schema
@@ -1538,9 +1550,32 @@ instance FromJSON Schema where
     <*> v .:? "deprecated"
     <*> v .:? "xml"
     <*> v .:? "format"
-    <*> v .:? "type"
+    <*> parseSchemaType v
     <*> v .:? "not"
     <*> (pure (xify v))
+    where
+      parseSchemaType :: Object -> Parser [Text]
+      parseSchemaType o = do
+        tyVal <- o .:? "type"
+        case tyVal of
+          Nothing -> pure []
+          Just ty -> postprocessType ty
+
+-- | Until we parse types correctly as ADT:
+--   https://swagger.io/docs/specification/data-models/data-types/
+postprocessType :: Value -> Parser [Text]
+postprocessType (String t) = pure [t]
+postprocessType (Object o) = do
+  oneOfField :: Maybe Value <- o .:? "oneOf"
+  case oneOfField of
+    Nothing               -> fail $ "Unhandled type: " <> show o
+    Just (Array variants) -> postprocessTypes variants
+postprocessType (Array  a) = postprocessTypes a
+
+postprocessTypes :: Foldable f
+                 => f Value
+                 -> Parser [Text]
+postprocessTypes args = foldMap postprocessType args
 
 -- |Operation responses tags summary description externalDocs operationId parameters requestBody callbacks deprecated security servers x
 data Operation = Operation {_operation_responses :: (HashMap Text (ReferenceOr Response)), _operation_tags :: (Maybe [Text]), _operation_summary :: (Maybe Text), _operation_description :: (Maybe Text), _operation_externalDocs :: (Maybe ExternalDocumentation), _operation_operationId :: (Maybe Text), _operation_parameters :: (Maybe [ReferenceOr Parameter]), _operation_requestBody :: (Maybe (ReferenceOr RequestBody)), _operation_callbacks :: (Maybe (HashMap Text (ReferenceOr (HashMap Text PathItem)))), _operation_deprecated :: (Maybe Bool), _operation_security :: (Maybe [HashMap Text [Text]]), _operation_servers :: (Maybe [Server]), _operation_x :: (Maybe (HashMap Text Value)) } deriving (Eq)
