@@ -5,6 +5,8 @@ license:             BSD3
 author:              "Mike Solomon"
 maintainer:          "mike@meeshkan.com"
 copyright:           "2020 Meeshkan Oy"
+synopsis:            Types for OpenAPI
+category:            OpenAPI
 
 extra-source-files:
 - README.md
@@ -21,6 +23,10 @@ description:         Please see the README on GitHub at <https://github.com/mees
 
 dependencies:
 - base >= 4.7 && < 5
+- unordered-containers >= 0.2.10 && < 0.3
+- aeson >= 1.4.7 && < 1.5
+- text >= 1.2.4 && < 1.3
+- vector >= 0.12.1 && < 0.13
 
 library:
   source-dirs: src
@@ -35,3 +41,8 @@ tests:
     - -with-rtsopts=-N
     dependencies:
     - openapi-typed
+    - hspec >=2.7.1
+    - optics-core >= 0.3
+    - optics-extra >= 0.3
+    - yaml >= 0.11.3.0
+
