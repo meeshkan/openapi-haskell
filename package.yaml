@@ -46,3 +46,10 @@ tests:
     - optics-extra >= 0.3
     - yaml >= 0.11.3.0
 
+executables:
+  openapi-typed-print:
+    main:         Main.hs
+    source-dirs:  app
+    dependencies:
+    - openapi-typed
+    - yaml >= 0.11.3.0
